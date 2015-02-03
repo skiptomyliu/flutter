@@ -22,6 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let lsof = Lsof(raw_line: line, delimiter: "~")
             println ("\(lsof.name) \(lsof.command)")
         }
+        
+        let database = FMDatabase(path: "/tmp/locations.db")
+        if !database.open() {
+            println("Unable to open database")
+            return
+        }
+        
+        if let rs = database.executeQuery("SELECT startIpNum, endIpNum FROM Blocks", withArgumentsInArray: nil) {
+            while rs.next() {
+                let x = rs.stringForColumn("startIpNum")
+                let y = rs.stringForColumn("endIpNum")
+                println("x = \(x); y = \(y);")
+            }
+        } else {
+            println("select failed: \(database.lastErrorMessage())")
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {

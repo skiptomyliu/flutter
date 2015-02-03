@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		051F966D1A818BF6008E7416 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F96641A818BF6008E7416 /* FMDatabase.m */; };
+		051F966E1A818BF6008E7416 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F96661A818BF6008E7416 /* FMResultSet.m */; };
+		051F966F1A818BF6008E7416 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F96681A818BF6008E7416 /* FMDatabaseQueue.m */; };
+		051F96701A818BF6008E7416 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F966A1A818BF6008E7416 /* FMDatabaseAdditions.m */; };
+		051F96711A818BF6008E7416 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F966C1A818BF6008E7416 /* FMDatabasePool.m */; };
+		051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 051F96721A818C27008E7416 /* libsqlite3.dylib */; };
+		051F96781A818D3F008E7416 /* locations.db in Resources */ = {isa = PBXBuildFile; fileRef = 051F96771A818D3F008E7416 /* locations.db */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5111A802CD400EA9787 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5101A802CD400EA9787 /* ViewController.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
@@ -28,6 +35,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		051F96611A818BF5008E7416 /* flutter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "flutter-Bridging-Header.h"; sourceTree = "<group>"; };
+		051F96621A818BF6008E7416 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		051F96631A818BF6008E7416 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		051F96641A818BF6008E7416 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		051F96651A818BF6008E7416 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		051F96661A818BF6008E7416 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		051F96671A818BF6008E7416 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		051F96681A818BF6008E7416 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		051F96691A818BF6008E7416 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		051F966A1A818BF6008E7416 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		051F966B1A818BF6008E7416 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		051F966C1A818BF6008E7416 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		051F96721A818C27008E7416 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		051F96771A818D3F008E7416 /* locations.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = locations.db; path = Resources/locations.db; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +82,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051F965F1A818BDF008E7416 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				051F96601A818BEB008E7416 /* FMDB */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		051F96601A818BEB008E7416 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				051F96621A818BF6008E7416 /* FMDB.h */,
+				051F96631A818BF6008E7416 /* FMDatabase.h */,
+				051F96641A818BF6008E7416 /* FMDatabase.m */,
+				051F96651A818BF6008E7416 /* FMResultSet.h */,
+				051F96661A818BF6008E7416 /* FMResultSet.m */,
+				051F96671A818BF6008E7416 /* FMDatabaseQueue.h */,
+				051F96681A818BF6008E7416 /* FMDatabaseQueue.m */,
+				051F96691A818BF6008E7416 /* FMDatabaseAdditions.h */,
+				051F966A1A818BF6008E7416 /* FMDatabaseAdditions.m */,
+				051F966B1A818BF6008E7416 /* FMDatabasePool.h */,
+				051F966C1A818BF6008E7416 /* FMDatabasePool.m */,
+				051F96611A818BF5008E7416 /* flutter-Bridging-Header.h */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		051F96741A818CFC008E7416 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				051F96771A818D3F008E7416 /* locations.db */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		051F96791A818DC4008E7416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				051F96721A818C27008E7416 /* libsqlite3.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0575A5001A802CD300EA9787 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +153,9 @@
 				0575A5101A802CD400EA9787 /* ViewController.swift */,
 				0575A5121A802CD400EA9787 /* Images.xcassets */,
 				0575A5141A802CD400EA9787 /* Main.storyboard */,
+				051F965F1A818BDF008E7416 /* Library */,
+				051F96791A818DC4008E7416 /* Frameworks */,
+				051F96741A818CFC008E7416 /* Resources */,
 				0575A50C1A802CD400EA9787 /* Supporting Files */,
 			);
 			path = flutter;
@@ -222,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051F96781A818D3F008E7416 /* locations.db in Resources */,
 				0575A5331A816CDF00EA9787 /* lsof.sh in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
@@ -242,10 +311,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				051F966E1A818BF6008E7416 /* FMResultSet.m in Sources */,
 				0575A5111A802CD400EA9787 /* ViewController.swift in Sources */,
 				0575A5301A80443C00EA9787 /* Lsof.swift in Sources */,
+				051F966F1A818BF6008E7416 /* FMDatabaseQueue.m in Sources */,
+				051F96711A818BF6008E7416 /* FMDatabasePool.m in Sources */,
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
+				051F966D1A818BF6008E7416 /* FMDatabase.m in Sources */,
 				0575A52E1A802DD100EA9787 /* SystemCall.swift in Sources */,
+				051F96701A818BF6008E7416 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,10 +434,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -371,10 +448,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -433,6 +512,7 @@
 				0575A5271A802CD400EA9787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0575A5281A802CD400EA9787 /* Build configuration list for PBXNativeTarget "flutterTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +521,7 @@
 				0575A52A1A802CD400EA9787 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
