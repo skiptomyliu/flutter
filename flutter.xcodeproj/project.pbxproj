@@ -12,6 +12,9 @@
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
 		0575A5221A802CD400EA9787 /* flutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5211A802CD400EA9787 /* flutterTests.swift */; };
+		0575A52E1A802DD100EA9787 /* SystemCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A52D1A802DD100EA9787 /* SystemCall.swift */; };
+		0575A5301A80443C00EA9787 /* Lsof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A52F1A80443C00EA9787 /* Lsof.swift */; };
+		0575A5331A816CDF00EA9787 /* lsof.sh in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5321A816CDF00EA9787 /* lsof.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 		0575A51B1A802CD400EA9787 /* flutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A5201A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A5211A802CD400EA9787 /* flutterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flutterTests.swift; sourceTree = "<group>"; };
+		0575A52D1A802DD100EA9787 /* SystemCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCall.swift; sourceTree = "<group>"; };
+		0575A52F1A80443C00EA9787 /* Lsof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lsof.swift; sourceTree = "<group>"; };
+		0575A5321A816CDF00EA9787 /* lsof.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = lsof.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,9 @@
 		0575A50B1A802CD400EA9787 /* flutter */ = {
 			isa = PBXGroup;
 			children = (
+				0575A5311A816CC500EA9787 /* Scripts */,
+				0575A52C1A802D0200EA9787 /* Controllers */,
+				0575A52B1A802CFB00EA9787 /* Classes */,
 				0575A50E1A802CD400EA9787 /* AppDelegate.swift */,
 				0575A5101A802CD400EA9787 /* ViewController.swift */,
 				0575A5121A802CD400EA9787 /* Images.xcassets */,
@@ -107,6 +116,30 @@
 				0575A5201A802CD400EA9787 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0575A52B1A802CFB00EA9787 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0575A52D1A802DD100EA9787 /* SystemCall.swift */,
+				0575A52F1A80443C00EA9787 /* Lsof.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		0575A52C1A802D0200EA9787 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0575A5311A816CC500EA9787 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				0575A5321A816CDF00EA9787 /* lsof.sh */,
+			);
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +222,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0575A5331A816CDF00EA9787 /* lsof.sh in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 			);
@@ -209,7 +243,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0575A5111A802CD400EA9787 /* ViewController.swift in Sources */,
+				0575A5301A80443C00EA9787 /* Lsof.swift in Sources */,
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
+				0575A52E1A802DD100EA9787 /* SystemCall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
