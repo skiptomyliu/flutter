@@ -14,16 +14,42 @@
 
 import Foundation
 
-class Lsof {
-    var command: String     // Application
-    var pid: String
-    var user: String
-    var type: String        // Should we change this to int?
-    var node: String        // TCP or UDP
-    var name: String        // The raw connection string
+enum NetworkProtocol {
+    case TCP, UDP, UNDEFINED
+}
+
+struct IPAddress {
+    var ip: String
+    var network_protocol: NetworkProtocol
+    var port: Int
     
-    var ip_src: String?     // Parsed name to get ip src
-    var ip_dst: String?     // Parsed name to get ip dst
+    init() {
+        self.ip = ""
+        self.network_protocol = NetworkProtocol.UNDEFINED
+        self.port = 0
+    }
+    
+    init (ip: String, network_protocol: NetworkProtocol, port: Int) {
+        self.ip = ip
+        self.network_protocol = network_protocol
+        self.port = port
+    }
+    
+    func isIp6() -> Bool {
+        // XXX:  Todo
+        return false
+    }
+}
+
+class Lsof {
+    var command: String  // Application
+    var pid: String  // Process ID
+    var user: String  // User associated with process
+    var type: String  // Should we change this to int?
+    var node: String  // TCP or UDP
+    var name: String  // Raw connection string, we explode the value into src and dst address
+    var ip_src: IPAddress = IPAddress()  // Parsed name to get ip src
+    var ip_dst: IPAddress = IPAddress()  // Parsed name to get ip dst
     
     init() {
         self.command = ""
@@ -32,6 +58,8 @@ class Lsof {
         self.type = ""
         self.node = ""
         self.name = ""
+        self.ip_src = IPAddress()
+        self.ip_dst = IPAddress()
     }
     
     init(command: String, pid: String, user: String, type: String, node: String, name: String) {
@@ -41,6 +69,10 @@ class Lsof {
         self.type = type
         self.node = node
         self.name = name
+        
+        let lsof_parsed_src_dst = self.dissect_lsof_name(self.name)
+        self.ip_src = lsof_parsed_src_dst.src_ip
+        self.ip_dst = lsof_parsed_src_dst.dst_ip
     }
     
     convenience init(raw_line: String, delimiter: String) {
@@ -51,5 +83,31 @@ class Lsof {
             self.init()
         }
     }
-
+    
+    // Arguments:  Takes in an IP address + port in format xxx.xxx.xxx.xxx:pp
+    // Returns: (ip, port) tuple
+    // XXX:  Support IPv6
+    func dissect_ip_and_port(ip_and_port: String) -> (ip: String, port: Int) {
+        let ip_port_array = ip_and_port.componentsSeparatedByString(":")
+        if (ip_port_array.count == 2) {
+            return (ip_port_array[0], ip_port_array[1].toInt()!)
+        }
+        return ("",-1)
+    }
+    
+    // Arguments: Takes in lsof name: 172.31.99.214:59688->23.0.209.54:443
+    // Returns: (IPAddress, IPAddress) tuple
+    func dissect_lsof_name(lsof_name: String) -> (src_ip: IPAddress, dst_ip: IPAddress) {
+        let src_dst_array = lsof_name.componentsSeparatedByString("->")
+        
+        if(src_dst_array.count > 1) {
+            let src = dissect_ip_and_port(src_dst_array[0])
+            let dst = dissect_ip_and_port(src_dst_array[1])
+            let src_ip = IPAddress(ip: src.ip, network_protocol: NetworkProtocol.TCP, port: src.port)
+            let dst_ip = IPAddress(ip: dst.ip, network_protocol: NetworkProtocol.TCP, port: dst.port)
+            
+            return (src_ip, dst_ip)
+        }
+        return (IPAddress(), IPAddress())
+    }
 }

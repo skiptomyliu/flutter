@@ -20,11 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         for line in lines{
             let lsof = Lsof(raw_line: line, delimiter: "~")
-//            println ("\(lsof.name) \(lsof.command)")
+            println ("\(lsof.name) \n \(lsof.ip_src.ip) \(lsof.ip_dst.ip) \(lsof.command) ")
         }
         
-        let geomanager = GeoIpManager()
-        geomanager.test()
+//        let geomanager = GeoIpManager()
+//        geomanager.test()
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
