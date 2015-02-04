@@ -14,6 +14,7 @@
 		051F96711A818BF6008E7416 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F966C1A818BF6008E7416 /* FMDatabasePool.m */; };
 		051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 051F96721A818C27008E7416 /* libsqlite3.dylib */; };
 		051F96781A818D3F008E7416 /* locations.db in Resources */ = {isa = PBXBuildFile; fileRef = 051F96771A818D3F008E7416 /* locations.db */; };
+		051F967B1A819A01008E7416 /* GeoIpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F967A1A819A01008E7416 /* GeoIpManager.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5111A802CD400EA9787 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5101A802CD400EA9787 /* ViewController.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
@@ -49,6 +50,7 @@
 		051F966C1A818BF6008E7416 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
 		051F96721A818C27008E7416 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		051F96771A818D3F008E7416 /* locations.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = locations.db; path = Resources/locations.db; sourceTree = "<group>"; };
+		051F967A1A819A01008E7416 /* GeoIpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeoIpManager.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				0575A52D1A802DD100EA9787 /* SystemCall.swift */,
 				0575A52F1A80443C00EA9787 /* Lsof.swift */,
+				051F967A1A819A01008E7416 /* GeoIpManager.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
 				051F966D1A818BF6008E7416 /* FMDatabase.m in Sources */,
 				0575A52E1A802DD100EA9787 /* SystemCall.swift in Sources */,
+				051F967B1A819A01008E7416 /* GeoIpManager.swift in Sources */,
 				051F96701A818BF6008E7416 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
