@@ -18,40 +18,21 @@ enum NetworkProtocol {
     case TCP, UDP, UNDEFINED
 }
 
-struct IPAddress {
-    var ip: String
+struct Connection {
+    var ip: IPAddress
     var network_protocol: NetworkProtocol
     var port: Int
     
     init() {
-        self.ip = ""
+        self.ip = IPAddress(ip_str:"0.0.0.0")
         self.network_protocol = NetworkProtocol.UNDEFINED
         self.port = 0
     }
     
-    init (ip: String, network_protocol: NetworkProtocol, port: Int) {
+    init (ip: IPAddress, network_protocol: NetworkProtocol, port: Int) {
         self.ip = ip
         self.network_protocol = network_protocol
         self.port = port
-    }
-    
-    func ip_int() -> Int? {
-        let ip_components_array = self.ip.componentsSeparatedByString(".")
-        
-        if (ip_components_array.count == 4){
-            let ip_comp1: Int = ip_components_array[0].toInt()!
-            let ip_comp2: Int = ip_components_array[1].toInt()!
-            let ip_comp3: Int = ip_components_array[2].toInt()!
-            let ip_comp4: Int = ip_components_array[3].toInt()!
-            
-            return ip_comp1 << 24 + ip_comp2 << 16 + ip_comp3 << 8 + ip_comp4
-        }
-        return nil
-    }
-    
-    func isIp6() -> Bool {
-        // XXX:  Todo
-        return false
     }
 }
 
@@ -62,8 +43,8 @@ class Lsof {
     var type: String  // Should we change this to int?
     var node: String  // TCP or UDP
     var name: String  // Raw connection string, we explode the value into src and dst address
-    var ip_src: IPAddress = IPAddress()  // Parsed name to get ip src
-    var ip_dst: IPAddress = IPAddress()  // Parsed name to get ip dst
+    var ip_src: Connection = Connection()  // Parsed name to get ip src
+    var ip_dst: Connection = Connection()  // Parsed name to get ip dst
     
     init() {
         self.command = ""
@@ -96,30 +77,30 @@ class Lsof {
         }
     }
     
-    // Arguments:  Takes in an IP address + port in format xxx.xxx.xxx.xxx:pp
-    // Returns: (ip, port) tuple
-    // XXX:  Support IPv6
-    func dissect_ip_and_port(ip_and_port: String) -> (ip: String, port: Int) {
-        let ip_port_array = ip_and_port.componentsSeparatedByString(":")
-        if (ip_port_array.count == 2) {
-            return (ip_port_array[0], ip_port_array[1].toInt()!)
-        }
-        return ("",-1)
-    }
-    
     // Arguments: Takes in lsof name: 172.31.99.214:59688->23.0.209.54:443
-    // Returns: (IPAddress, IPAddress) tuple
-    func dissect_lsof_name(lsof_name: String) -> (src_ip: IPAddress, dst_ip: IPAddress) {
-        let src_dst_array = lsof_name.componentsSeparatedByString("->")
+    // Returns: (Connection, Connection) tuple
+    func dissect_lsof_name(lsof_name: String) -> (src_ip: Connection, dst_ip: Connection) {
         
+        // Arguments:  Takes in an IP address string + port in format xxx.xxx.xxx.xxx:pp
+        // Returns: (ip, port) tuple
+        // XXX:  Support IPv6
+        func dissect_ip_and_port(ip_and_port: String) -> (ip: IPAddress, port: Int) {
+            let ip_port_array = ip_and_port.componentsSeparatedByString(":")
+            if (ip_port_array.count == 2) {
+                return (IPAddress(ip_str: ip_port_array[0]), ip_port_array[1].toInt()!)
+            }
+            return (IPAddress(ip_str: "0.0.0.0"),-1)
+        }
+        
+        let src_dst_array = lsof_name.componentsSeparatedByString("->")
         if(src_dst_array.count > 1) {
             let src = dissect_ip_and_port(src_dst_array[0])
             let dst = dissect_ip_and_port(src_dst_array[1])
-            let src_ip = IPAddress(ip: src.ip, network_protocol: NetworkProtocol.TCP, port: src.port)
-            let dst_ip = IPAddress(ip: dst.ip, network_protocol: NetworkProtocol.TCP, port: dst.port)
+            let src_ip = Connection(ip: src.ip, network_protocol: NetworkProtocol.TCP, port: src.port)
+            let dst_ip = Connection(ip: dst.ip, network_protocol: NetworkProtocol.TCP, port: dst.port)
             
             return (src_ip, dst_ip)
         }
-        return (IPAddress(), IPAddress())
+        return (Connection(), Connection())
     }
 }
