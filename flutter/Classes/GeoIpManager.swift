@@ -6,14 +6,80 @@
 //  Copyright (c) 2015 dragonfly. All rights reserved.
 //
 
+
+/*
+
+Blocks
+startIpNum,endIpNum,locId
+
+Location:
+locId,country,region,city,postalCode,latitude,longitude,metroCode,areaCode
+
+*/
+
 import Foundation
+
+
+struct Location {
+    var locId: Int
+    var country: String
+    var region: String
+    var city: String
+    var postalCode: String
+    var latitude: Double
+    var longitude: Double
+    var metroCode: Int
+    var areaCode: Int
+}
 
 class GeoIpManager{
     
     var database: FMDatabase
     
     init(){
-        self.database = FMDatabase(path: "/tmp/locations.db")
+        self.database = FMDatabase(path: "/tmp/locations.db") // Change this
+        
+        if !self.database.open() {
+            println("Unable to open database")
+            return
+        }
+    }
+    
+    func region_from_ipaddress(ipaddress: IPAddress) -> Location? {
+        let location_id = self.locId_from_ip(ipaddress)
+        return region_from_locid(location_id)
+    }
+    
+    // Arguments:  Provide IP Address and retrieve the location id from Blocks DB
+    // Return:  Location ID associated with IP Address block
+    func locId_from_ip(ipaddress: IPAddress) -> Int {
+        if let rs = self.database.executeQuery("SELECT locId FROM blocks WHERE startIpNum <= /(ipaddress) AND endIpNum >= /(ipaddress);", withArgumentsInArray: nil) {
+            while rs.next() {
+                return rs.stringForColumn("locId").toInt()!
+            }
+        }
+        return 0
+    }
+    
+    // Arguments:  Given a location id (from Blocks DB), we fetch the location metadata
+    // Return:  Location object
+    func region_from_locid(locId: Int) -> Location? {
+        if let rs = self.database.executeQuery("SELECT * FROM location WHERE locId = /(locId);", withArgumentsInArray: nil) {
+            while rs.next() {
+                let locId = rs.stringForColumn("locId").toInt()!
+                let country = rs.stringForColumn("country")
+                let region = rs.stringForColumn("region")
+                let city = rs.stringForColumn("city")
+                let postalCode = rs.stringForColumn("postalCode")
+                let latitude = rs.doubleForColumn("latitude");
+                let longitude = rs.doubleForColumn("longitude")
+                let metroCode = rs.stringForColumn("metroCode").toInt()!
+                let areaCode = rs.stringForColumn("areaCode").toInt()!
+                
+                return Location(locId: locId, country: country, region: region, city: city, postalCode: postalCode, latitude: latitude, longitude: longitude, metroCode: metroCode, areaCode: areaCode)
+            }
+        }
+        return nil
     }
     
     func test(){
@@ -29,7 +95,7 @@ class GeoIpManager{
                 println("x = \(x); y = \(y);")
             }
         } else {
-        println("select failed: \(self.database.lastErrorMessage())")
+            println("select failed: \(self.database.lastErrorMessage())")
         }
     }
 

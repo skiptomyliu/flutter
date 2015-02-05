@@ -35,6 +35,20 @@ struct IPAddress {
         self.port = port
     }
     
+    func ip_int() -> Int? {
+        let ip_components_array = self.ip.componentsSeparatedByString(".")
+        
+        if (ip_components_array.count == 4){
+            let ip_comp1: Int = ip_components_array[0].toInt()!
+            let ip_comp2: Int = ip_components_array[1].toInt()!
+            let ip_comp3: Int = ip_components_array[2].toInt()!
+            let ip_comp4: Int = ip_components_array[3].toInt()!
+            
+            return ip_comp1 << 24 + ip_comp2 << 16 + ip_comp3 << 8 + ip_comp4
+        }
+        return nil
+    }
+    
     func isIp6() -> Bool {
         // XXX:  Todo
         return false
@@ -58,8 +72,6 @@ class Lsof {
         self.type = ""
         self.node = ""
         self.name = ""
-        self.ip_src = IPAddress()
-        self.ip_dst = IPAddress()
     }
     
     init(command: String, pid: String, user: String, type: String, node: String, name: String) {
