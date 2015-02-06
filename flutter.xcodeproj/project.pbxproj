@@ -19,8 +19,10 @@
 		051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F96991A82AF26008E7416 /* SystemCall.swift */; };
 		051F969F1A82AF3A008E7416 /* lsof.sh in Resources */ = {isa = PBXBuildFile; fileRef = 051F969E1A82AF3A008E7416 /* lsof.sh */; };
 		053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE71A84181B00E8DA73 /* IPAddress.swift */; };
+		053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE91A842A5900E8DA73 /* MapViewController.swift */; };
+		053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E7FEB1A842B9800E8DA73 /* MapKit.framework */; };
+		053E7FEE1A84454400E8DA73 /* SystemOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FED1A84454400E8DA73 /* SystemOperation.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
-		0575A5111A802CD400EA9787 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5101A802CD400EA9787 /* ViewController.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
 		0575A5221A802CD400EA9787 /* flutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5211A802CD400EA9787 /* flutterTests.swift */; };
@@ -55,10 +57,12 @@
 		051F96991A82AF26008E7416 /* SystemCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCall.swift; sourceTree = "<group>"; };
 		051F969E1A82AF3A008E7416 /* lsof.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = lsof.sh; sourceTree = "<group>"; };
 		053E7FE71A84181B00E8DA73 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
+		053E7FE91A842A5900E8DA73 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		053E7FEB1A842B9800E8DA73 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		053E7FED1A84454400E8DA73 /* SystemOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemOperation.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0575A5101A802CD400EA9787 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0575A5121A802CD400EA9787 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0575A5151A802CD400EA9787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0575A51B1A802CD400EA9787 /* flutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */,
 				051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +101,7 @@
 		051F96791A818DC4008E7416 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				053E7FEB1A842B9800E8DA73 /* MapKit.framework */,
 				051F96721A818C27008E7416 /* libsqlite3.dylib */,
 			);
 			name = Frameworks;
@@ -134,6 +140,7 @@
 				051F96981A82AF26008E7416 /* Lsof.swift */,
 				051F96991A82AF26008E7416 /* SystemCall.swift */,
 				053E7FE71A84181B00E8DA73 /* IPAddress.swift */,
+				053E7FED1A84454400E8DA73 /* SystemOperation.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 		051F96A01A82AF52008E7416 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				053E7FE91A842A5900E8DA73 /* MapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -179,7 +187,6 @@
 				051F96961A82AF26008E7416 /* Classes */,
 				051F96841A82AF0F008E7416 /* Library */,
 				0575A50E1A802CD400EA9787 /* AppDelegate.swift */,
-				0575A5101A802CD400EA9787 /* ViewController.swift */,
 				0575A5121A802CD400EA9787 /* Images.xcassets */,
 				0575A5141A802CD400EA9787 /* Main.storyboard */,
 				051F96791A818DC4008E7416 /* Frameworks */,
@@ -315,16 +322,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0575A5111A802CD400EA9787 /* ViewController.swift in Sources */,
 				053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */,
 				051F969B1A82AF26008E7416 /* Lsof.swift in Sources */,
 				051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */,
 				051F96951A82AF0F008E7416 /* FMResultSet.m in Sources */,
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
 				051F969A1A82AF26008E7416 /* GeoIpManager.swift in Sources */,
+				053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */,
 				051F96931A82AF0F008E7416 /* FMDatabasePool.m in Sources */,
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
 				051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */,
+				053E7FEE1A84454400E8DA73 /* SystemOperation.swift in Sources */,
 				051F96941A82AF0F008E7416 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

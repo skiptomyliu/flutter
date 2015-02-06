@@ -30,7 +30,7 @@ class SystemCall{
         
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output: String = NSString(data: data, encoding: NSUTF8StringEncoding)!
-
+        
         return output
     }
     
