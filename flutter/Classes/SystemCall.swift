@@ -9,7 +9,7 @@
 import Foundation
 
 
-class SystemCall{
+class SystemCall {
     
     var cmd: String
     var args: Array <String>

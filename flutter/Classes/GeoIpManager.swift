@@ -31,7 +31,6 @@ struct Location {
 }
 
 class GeoIpManager{
-    
     var database: FMDatabase
     
     init(){
@@ -41,6 +40,20 @@ class GeoIpManager{
             println("Unable to open database")
             return
         }
+    }
+    
+    func parseLsofRaw(lines: String) -> [Location] {
+        var locations = [Location]()
+        let lines = lines.componentsSeparatedByString("\n")
+        for line in lines{
+            let lsof = Lsof(raw_line: line, delimiter: "~")
+            let loc = self.region_from_ipaddress(lsof.ip_dst.ip)
+            if loc != nil {
+                println("\(loc?.city) - (\(loc?.latitude),\(loc?.longitude)) \(loc?.city) \(loc?.country)  ")
+                locations.append(loc!)
+            }
+        }
+        return locations
     }
     
     func region_from_ipaddress(ipaddress: IPAddress) -> Location? {
