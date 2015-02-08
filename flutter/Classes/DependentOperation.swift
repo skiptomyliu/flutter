@@ -10,6 +10,8 @@
 
 This wraps an NSOperation and sets another NSOperation to run after it is finished
 
+Revisit this later
+
 */
 import Foundation
 

@@ -19,7 +19,7 @@ locId,country,region,city,postalCode,latitude,longitude,metroCode,areaCode
 import Foundation
 
 struct Location {
-    var locId: Int
+    var locId: Int          //Location ID
     var country: String
     var region: String
     var city: String
@@ -28,6 +28,13 @@ struct Location {
     var longitude: Double
     var metroCode: Int?
     var areaCode: Int?
+    
+    func locationString() -> String{
+        if self.city != "" {
+            return "\(self.city), \(self.region)"
+        }
+        return self.country
+    }
 }
 
 class GeoIpManager{

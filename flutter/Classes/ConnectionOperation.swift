@@ -10,11 +10,12 @@ import Foundation
 
 
 protocol ConnectionCallbackDelegate {
-    func handleConnections([Location])
+    func handleMapConnections([(LsofLocation)])
 }
 
 class ConnectionOperation: NSOperation {
     var delegate: ConnectionCallbackDelegate?
+    let delay:NSTimeInterval = 10 //XXX:  Todo, put this in plist
     
     override func main() {
         if self.cancelled {
@@ -27,11 +28,17 @@ class ConnectionOperation: NSOperation {
         let lines = result.componentsSeparatedByString("\n");
         
         let geoip = GeoIpManager()
-        let locations = geoip.parseLsofRaw(result)
-        for location in locations {
-            println(location)
+        var mapConnections = [LsofLocation]()
+        for line in lines{
+            println(line)
+            let lsof = Lsof(raw_line: line, delimiter: "~")
+            let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip)
+            if loc != nil {
+                mapConnections.append(LsofLocation(location: loc!, lsof: lsof))
+            }
         }
-        delegate?.handleConnections(locations)
+        delegate?.handleMapConnections(mapConnections)
+        NSThread.sleepForTimeInterval(self.delay)
     }
 }
 
