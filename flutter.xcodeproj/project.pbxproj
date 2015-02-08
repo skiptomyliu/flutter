@@ -24,6 +24,8 @@
 		053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E7FEB1A842B9800E8DA73 /* MapKit.framework */; };
 		053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */; };
 		054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2E9B1A86F60E002A117A /* LsofLocation.swift */; };
+		054F2EA51A871150002A117A /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2EA41A871150002A117A /* LeftView.swift */; };
+		054F2EA71A87D651002A117A /* CounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2EA61A87D651002A117A /* CounterManager.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
@@ -65,6 +67,8 @@
 		053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionOperation.swift; sourceTree = "<group>"; };
 		053E7FEF1A855B9500E8DA73 /* flutter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = flutter.entitlements; sourceTree = "<group>"; };
 		054F2E9B1A86F60E002A117A /* LsofLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LsofLocation.swift; sourceTree = "<group>"; };
+		054F2EA41A871150002A117A /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
+		054F2EA61A87D651002A117A /* CounterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterManager.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */,
 				053BE4291A8564C600874341 /* DependentOperation.swift */,
 				054F2E9B1A86F60E002A117A /* LsofLocation.swift */,
+				054F2EA61A87D651002A117A /* CounterManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -167,6 +172,14 @@
 				053E7FE91A842A5900E8DA73 /* MapViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		054F2EA31A87113D002A117A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				054F2EA41A871150002A117A /* LeftView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0575A5001A802CD300EA9787 = {
@@ -190,6 +203,7 @@
 		0575A50B1A802CD400EA9787 /* flutter */ = {
 			isa = PBXGroup;
 			children = (
+				054F2EA31A87113D002A117A /* Views */,
 				051F969D1A82AF3A008E7416 /* Scripts */,
 				051F96A01A82AF52008E7416 /* Controllers */,
 				051F96961A82AF26008E7416 /* Classes */,
@@ -339,7 +353,9 @@
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
 				051F969A1A82AF26008E7416 /* GeoIpManager.swift in Sources */,
 				053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */,
+				054F2EA51A871150002A117A /* LeftView.swift in Sources */,
 				051F96931A82AF0F008E7416 /* FMDatabasePool.m in Sources */,
+				054F2EA71A87D651002A117A /* CounterManager.swift in Sources */,
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
 				054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */,
 				051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */,

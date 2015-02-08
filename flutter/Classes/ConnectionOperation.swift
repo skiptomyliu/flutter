@@ -30,7 +30,6 @@ class ConnectionOperation: NSOperation {
         let geoip = GeoIpManager()
         var mapConnections = [LsofLocation]()
         for line in lines{
-            println(line)
             let lsof = Lsof(raw_line: line, delimiter: "~")
             let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip)
             if loc != nil {
