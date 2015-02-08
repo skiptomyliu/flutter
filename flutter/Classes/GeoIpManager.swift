@@ -19,7 +19,7 @@ locId,country,region,city,postalCode,latitude,longitude,metroCode,areaCode
 import Foundation
 
 struct Location {
-    var locId: Int
+    var locId: Int          //Location ID
     var country: String
     var region: String
     var city: String
@@ -28,10 +28,16 @@ struct Location {
     var longitude: Double
     var metroCode: Int?
     var areaCode: Int?
+    
+    func locationString() -> String{
+        if self.city != "" {
+            return "\(self.city), \(self.region)"
+        }
+        return self.country
+    }
 }
 
 class GeoIpManager{
-    
     var database: FMDatabase
     
     init(){
@@ -41,6 +47,20 @@ class GeoIpManager{
             println("Unable to open database")
             return
         }
+    }
+    
+    func parseLsofRaw(lines: String) -> [Location] {
+        var locations = [Location]()
+        let lines = lines.componentsSeparatedByString("\n")
+        for line in lines{
+            let lsof = Lsof(raw_line: line, delimiter: "~")
+            let loc = self.region_from_ipaddress(lsof.ip_dst.ip)
+            if loc != nil {
+                println("\(loc?.city) - (\(loc?.latitude),\(loc?.longitude)) \(loc?.city) \(loc?.country)  ")
+                locations.append(loc!)
+            }
+        }
+        return locations
     }
     
     func region_from_ipaddress(ipaddress: IPAddress) -> Location? {
@@ -73,7 +93,7 @@ class GeoIpManager{
                 let longitude = rs.doubleForColumn("longitude")
                 let metroCode:Int? = rs.stringForColumn("metroCode").toInt()
                 let areaCode:Int? = rs.stringForColumn("areaCode").toInt()
-                
+
                 return Location(locId: locId, country: country, region: region, city: city, postalCode: postalCode, latitude: latitude, longitude: longitude, metroCode: metroCode, areaCode: areaCode)
             }
         }
