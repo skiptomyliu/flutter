@@ -467,7 +467,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d40da472-3649-4583-8c11-a727c168b1ba";
+				PROVISIONING_PROFILE = "2e166d5c-d42d-4cea-8ed9-4bb9414dd482";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -485,7 +485,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d40da472-3649-4583-8c11-a727c168b1ba";
+				PROVISIONING_PROFILE = "2e166d5c-d42d-4cea-8ed9-4bb9414dd482";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 			};
 			name = Release;
