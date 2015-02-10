@@ -93,7 +93,7 @@ class GeoIpManager{
                 let longitude = rs.doubleForColumn("longitude")
                 let metroCode:Int? = rs.stringForColumn("metroCode").toInt()
                 let areaCode:Int? = rs.stringForColumn("areaCode").toInt()
-
+                
                 return Location(locId: locId, country: country, region: region, city: city, postalCode: postalCode, latitude: latitude, longitude: longitude, metroCode: metroCode, areaCode: areaCode)
             }
         }

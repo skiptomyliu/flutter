@@ -10,8 +10,8 @@ import Cocoa
 import MapKit
 
 class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate {
-    @IBOutlet var mapView: MKMapView?
-    @IBOutlet var leftView: NSView?
+    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var leftView: LeftView!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
@@ -20,6 +20,8 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     var counterCountry = [String:Int]()
     
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
+
+        self.leftView.handleMapConnections(lsofLocations)
         
         for lsofLocation in lsofLocations {
             let lsof = lsofLocation.lsof
@@ -41,13 +43,11 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
                 annotation.coordinate = coord
                 annotation.title = lsof.command
                 annotation.subtitle = location.locationString()
-                self.mapView!.addAnnotation(annotation)
+                self.mapView.addAnnotation(annotation)
             }
         }
-        
         println(counterCity)
         println(counterCountry)
-        
         counterCountry = [String:Int]()
         counterCity = [String:Int]()
         
@@ -65,6 +65,8 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegate = self
+        
+        
         operationQueue.addOperations([co], waitUntilFinished: false)
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0500B4371A89296300887885 /* CountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0500B4361A89296300887885 /* CountView.xib */; };
+		0500B4391A8929FB00887885 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500B4381A8929FB00887885 /* CountView.swift */; };
 		051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 051F96721A818C27008E7416 /* libsqlite3.dylib */; };
 		051F96781A818D3F008E7416 /* locations.db in Resources */ = {isa = PBXBuildFile; fileRef = 051F96771A818D3F008E7416 /* locations.db */; };
 		051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F96871A82AF0F008E7416 /* FMDatabase.m */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0500B4361A89296300887885 /* CountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountView.xib; sourceTree = "<group>"; };
+		0500B4381A8929FB00887885 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		051F96721A818C27008E7416 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		051F96771A818D3F008E7416 /* locations.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = locations.db; path = Resources/locations.db; sourceTree = "<group>"; };
 		051F96861A82AF0F008E7416 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				054F2EA41A871150002A117A /* LeftView.swift */,
+				0500B4361A89296300887885 /* CountView.xib */,
+				0500B4381A8929FB00887885 /* CountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 			files = (
 				051F969F1A82AF3A008E7416 /* lsof.sh in Resources */,
 				051F96781A818D3F008E7416 /* locations.db in Resources */,
+				0500B4371A89296300887885 /* CountView.xib in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 			);
@@ -346,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */,
+				0500B4391A8929FB00887885 /* CountView.swift in Sources */,
 				051F969B1A82AF26008E7416 /* Lsof.swift in Sources */,
 				053BE42A1A8564C600874341 /* DependentOperation.swift in Sources */,
 				051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */,
@@ -483,7 +491,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d40da472-3649-4583-8c11-a727c168b1ba";
+				PROVISIONING_PROFILE = "323a9aeb-bf0d-40dd-a753-2dea5ee7c48b";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -501,7 +509,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d40da472-3649-4583-8c11-a727c168b1ba";
+				PROVISIONING_PROFILE = "323a9aeb-bf0d-40dd-a753-2dea5ee7c48b";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 			};
 			name = Release;
