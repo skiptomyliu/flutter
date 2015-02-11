@@ -16,4 +16,8 @@ class LsofLocation {
         self.location = location
         self.lsof = lsof
     }
+    
+    var description: String {
+        return "Location \(location)\n Lsof: \(lsof)"
+    }
 }

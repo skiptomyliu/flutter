@@ -46,6 +46,10 @@ class Lsof {
     var ip_src: Connection = Connection()  // Parsed name to get ip src
     var ip_dst: Connection = Connection()  // Parsed name to get ip dst
     
+    var description: String {
+        return "\(name)"
+    }
+    
     init() {
         self.command = ""
         self.pid = ""

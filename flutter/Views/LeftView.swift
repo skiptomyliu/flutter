@@ -9,18 +9,11 @@
 import Cocoa
 import MapKit
 
-class LeftView: NSView, ConnectionCallbackDelegate {
-  
+class LeftView: NSVisualEffectView, ConnectionCallbackDelegate {
     @IBOutlet var cityCountView0: CountView!
     @IBOutlet var cityCountView1: CountView!
     @IBOutlet var cityCountView2: CountView!
     @IBOutlet var cityCountView3: CountView!
-    
-    @IBOutlet var countrCountView0: CountView!
-    @IBOutlet var countrCountView1: CountView!
-    @IBOutlet var countrCountView2: CountView!
-    @IBOutlet var countrCountView3: CountView!
-    
     
     var cityCountViews = [CountView]()
     var countryCountViews = [CountView]()
@@ -35,7 +28,6 @@ class LeftView: NSView, ConnectionCallbackDelegate {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        
     }
     
     // Arg:  Dictionary
@@ -49,13 +41,14 @@ class LeftView: NSView, ConnectionCallbackDelegate {
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.cityCountViews = [self.cityCountView0,self.cityCountView1,self.cityCountView2,self.cityCountView3]
-            self.countryCountViews = [self.countrCountView0, self.countrCountView1, self.countrCountView2, self.countrCountView3]
+//            self.countryCountViews = [self.countrCountView0, self.countrCountView1, self.countrCountView2, self.countrCountView3]
             let operationQueue = NSOperationQueue()
             
             var counterCity = [String:Int]()
             var counterCountry = [String:Int]()
             
             for lsofloc in lsofLocations {
+                println(lsofloc)
                 let location = lsofloc.location
                 let city = location.city != "" ? location.city : "(No City)"
                 let cityKey = "\(city), \(location.country)"
@@ -77,10 +70,6 @@ class LeftView: NSView, ConnectionCallbackDelegate {
                     i=0
                     break;
                 }
-            }
-            
-            for (key,value) in counterCountry {
-                self.countryCountViews[i].label.stringValue = key
             }
         })
         

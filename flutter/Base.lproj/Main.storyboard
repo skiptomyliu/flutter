@@ -669,75 +669,51 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="MapViewController" customModule="flutter" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <mapView fixedFrame="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7iF-57-fob">
-                                <rect key="frame" x="213" y="0.0" width="587" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                                 <connections>
                                     <outlet property="delegate" destination="XfG-lQ-9wD" id="mQu-89-caU"/>
                                 </connections>
                             </mapView>
-                            <customView fixedFrame="YES" alphaValue="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="QVM-Ka-8XE" customClass="LeftView" customModule="flutter" customModuleProvider="target">
-                                <rect key="frame" x="-1" y="0.0" width="214" height="641"/>
+                            <visualEffectView appearanceType="vibrantDark" fixedFrame="YES" blendingMode="withinWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="BeQ-Xq-la8" customClass="LeftView" customModule="flutter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="600"/>
                                 <subviews>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caN-QB-Lr7" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="530" width="202" height="32"/>
+                                        <rect key="frame" x="12" y="471" width="202" height="32"/>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fAz-pa-Jdy" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="492" width="202" height="32"/>
+                                        <rect key="frame" x="13" y="431" width="202" height="32"/>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fnw-qc-tDp" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="454" width="202" height="32"/>
-                                    </customView>
-                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f9k-kW-4Zq" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="364" width="137" height="32"/>
-                                    </customView>
-                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kna-9o-yeT" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="326" width="137" height="32"/>
-                                    </customView>
-                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z61-Nu-Kmx" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="287" width="137" height="32"/>
+                                        <rect key="frame" x="13" y="391" width="202" height="32"/>
                                     </customView>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2UT-kI-hp5" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="3" y="417" width="202" height="32"/>
+                                        <rect key="frame" x="13" y="351" width="202" height="32"/>
                                     </customView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tss-oi-120">
-                                        <rect key="frame" x="3" y="570" width="29" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="City" id="WZH-CD-DQp">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kz0-Ss-pEy">
+                                        <rect key="frame" x="11" y="511" width="29" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="City" id="HRa-kM-Ynw">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nnK-hC-AjQ">
-                                        <rect key="frame" x="3" y="399" width="53" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Country" id="8BO-os-4YM">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d0H-aA-GlL" customClass="CountView" customModule="flutter" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="250" width="137" height="32"/>
-                                    </customView>
                                 </subviews>
                                 <connections>
-                                    <outlet property="cityCountView0" destination="caN-QB-Lr7" id="0YS-cu-E9k"/>
-                                    <outlet property="cityCountView1" destination="fAz-pa-Jdy" id="Iuw-xs-Rfu"/>
-                                    <outlet property="cityCountView2" destination="fnw-qc-tDp" id="ebM-K8-T5y"/>
-                                    <outlet property="cityCountView3" destination="2UT-kI-hp5" id="ivs-Cf-6oO"/>
-                                    <outlet property="countrCountView0" destination="f9k-kW-4Zq" id="208-gM-SLB"/>
-                                    <outlet property="countrCountView1" destination="Kna-9o-yeT" id="pM1-aS-I32"/>
-                                    <outlet property="countrCountView2" destination="z61-Nu-Kmx" id="IuW-go-gf8"/>
-                                    <outlet property="countrCountView3" destination="d0H-aA-GlL" id="faQ-Eg-hN4"/>
+                                    <outlet property="cityCountView0" destination="caN-QB-Lr7" id="wSa-of-ok1"/>
+                                    <outlet property="cityCountView1" destination="fAz-pa-Jdy" id="7Eh-Xp-jXW"/>
+                                    <outlet property="cityCountView2" destination="fnw-qc-tDp" id="fTa-fV-qnR"/>
+                                    <outlet property="cityCountView3" destination="2UT-kI-hp5" id="a4f-Js-0bZ"/>
                                 </connections>
-                            </customView>
+                            </visualEffectView>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="leftView" destination="QVM-Ka-8XE" id="IfK-HU-fap"/>
+                        <outlet property="leftView" destination="BeQ-Xq-la8" id="Ccz-8C-DEp"/>
                         <outlet property="mapView" destination="7iF-57-fob" id="Odz-pW-kxy"/>
                     </connections>
                 </viewController>

@@ -21,6 +21,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
 
+        
         self.leftView.handleMapConnections(lsofLocations)
         
         for lsofLocation in lsofLocations {
