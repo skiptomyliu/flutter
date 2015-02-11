@@ -26,16 +26,8 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         for lsofLocation in lsofLocations {
             let lsof = lsofLocation.lsof
             let location = lsofLocation.location
-            
             let keyStr = "\(location.latitude)\(location.longitude)"
-            
-            let citykey = "\(location.city)\(location.country)"
-            let countryKey = "\(location.country)"
-            
-            counterCity[citykey] = counterCity[citykey] != nil ? counterCity[citykey]!+1:1
-            counterCountry[countryKey] = counterCountry[countryKey] != nil ? counterCountry[countryKey]!+1:1
-            
-             (lsofLocation.location.city != "" ? location.city : location.country)
+
             if uniqueLocationDict[keyStr] == nil {
                 uniqueLocationDict[keyStr] = 1
                 let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -46,8 +38,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
                 self.mapView.addAnnotation(annotation)
             }
         }
-        println(counterCity)
-        println(counterCountry)
+        
         counterCountry = [String:Int]()
         counterCity = [String:Int]()
         
@@ -65,8 +56,6 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegate = self
-        
-        
         operationQueue.addOperations([co], waitUntilFinished: false)
     }
     

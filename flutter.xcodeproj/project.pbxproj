@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0500B4371A89296300887885 /* CountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0500B4361A89296300887885 /* CountView.xib */; };
-		0500B4391A8929FB00887885 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0500B4381A8929FB00887885 /* CountView.swift */; };
 		051F96731A818C27008E7416 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 051F96721A818C27008E7416 /* libsqlite3.dylib */; };
 		051F96781A818D3F008E7416 /* locations.db in Resources */ = {isa = PBXBuildFile; fileRef = 051F96771A818D3F008E7416 /* locations.db */; };
 		051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 051F96871A82AF0F008E7416 /* FMDatabase.m */; };
@@ -26,8 +24,9 @@
 		053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E7FEB1A842B9800E8DA73 /* MapKit.framework */; };
 		053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */; };
 		054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2E9B1A86F60E002A117A /* LsofLocation.swift */; };
-		054F2EA51A871150002A117A /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2EA41A871150002A117A /* LeftView.swift */; };
-		054F2EA71A87D651002A117A /* CounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2EA61A87D651002A117A /* CounterManager.swift */; };
+		056280F41A8ABF0000E64820 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F11A8ABF0000E64820 /* CountView.swift */; };
+		056280F51A8ABF0000E64820 /* CountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056280F21A8ABF0000E64820 /* CountView.xib */; };
+		056280F61A8ABF0000E64820 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F31A8ABF0000E64820 /* LeftView.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
@@ -45,8 +44,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0500B4361A89296300887885 /* CountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountView.xib; sourceTree = "<group>"; };
-		0500B4381A8929FB00887885 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		051F96721A818C27008E7416 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		051F96771A818D3F008E7416 /* locations.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = locations.db; path = Resources/locations.db; sourceTree = "<group>"; };
 		051F96861A82AF0F008E7416 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -71,8 +68,9 @@
 		053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionOperation.swift; sourceTree = "<group>"; };
 		053E7FEF1A855B9500E8DA73 /* flutter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = flutter.entitlements; sourceTree = "<group>"; };
 		054F2E9B1A86F60E002A117A /* LsofLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LsofLocation.swift; sourceTree = "<group>"; };
-		054F2EA41A871150002A117A /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
-		054F2EA61A87D651002A117A /* CounterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterManager.swift; sourceTree = "<group>"; };
+		056280F11A8ABF0000E64820 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
+		056280F21A8ABF0000E64820 /* CountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountView.xib; sourceTree = "<group>"; };
+		056280F31A8ABF0000E64820 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */,
 				053BE4291A8564C600874341 /* DependentOperation.swift */,
 				054F2E9B1A86F60E002A117A /* LsofLocation.swift */,
-				054F2EA61A87D651002A117A /* CounterManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -178,12 +175,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		054F2EA31A87113D002A117A /* Views */ = {
+		056280F01A8ABF0000E64820 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				054F2EA41A871150002A117A /* LeftView.swift */,
-				0500B4361A89296300887885 /* CountView.xib */,
-				0500B4381A8929FB00887885 /* CountView.swift */,
+				056280F11A8ABF0000E64820 /* CountView.swift */,
+				056280F21A8ABF0000E64820 /* CountView.xib */,
+				056280F31A8ABF0000E64820 /* LeftView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,7 +206,7 @@
 		0575A50B1A802CD400EA9787 /* flutter */ = {
 			isa = PBXGroup;
 			children = (
-				054F2EA31A87113D002A117A /* Views */,
+				056280F01A8ABF0000E64820 /* Views */,
 				051F969D1A82AF3A008E7416 /* Scripts */,
 				051F96A01A82AF52008E7416 /* Controllers */,
 				051F96961A82AF26008E7416 /* Classes */,
@@ -332,7 +329,7 @@
 			files = (
 				051F969F1A82AF3A008E7416 /* lsof.sh in Resources */,
 				051F96781A818D3F008E7416 /* locations.db in Resources */,
-				0500B4371A89296300887885 /* CountView.xib in Resources */,
+				056280F51A8ABF0000E64820 /* CountView.xib in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 			);
@@ -353,7 +350,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */,
-				0500B4391A8929FB00887885 /* CountView.swift in Sources */,
 				051F969B1A82AF26008E7416 /* Lsof.swift in Sources */,
 				053BE42A1A8564C600874341 /* DependentOperation.swift in Sources */,
 				051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */,
@@ -361,14 +357,14 @@
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
 				051F969A1A82AF26008E7416 /* GeoIpManager.swift in Sources */,
 				053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */,
-				054F2EA51A871150002A117A /* LeftView.swift in Sources */,
+				056280F41A8ABF0000E64820 /* CountView.swift in Sources */,
 				051F96931A82AF0F008E7416 /* FMDatabasePool.m in Sources */,
-				054F2EA71A87D651002A117A /* CounterManager.swift in Sources */,
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
 				054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */,
 				051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */,
 				053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */,
 				051F96941A82AF0F008E7416 /* FMDatabaseQueue.m in Sources */,
+				056280F61A8ABF0000E64820 /* LeftView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +487,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "323a9aeb-bf0d-40dd-a753-2dea5ee7c48b";
+				PROVISIONING_PROFILE = "2e166d5c-d42d-4cea-8ed9-4bb9414dd482";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -509,7 +505,7 @@
 				INFOPLIST_FILE = flutter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "323a9aeb-bf0d-40dd-a753-2dea5ee7c48b";
+				PROVISIONING_PROFILE = "2e166d5c-d42d-4cea-8ed9-4bb9414dd482";
 				SWIFT_OBJC_BRIDGING_HEADER = "flutter/flutter-Bridging-Header.h";
 			};
 			name = Release;

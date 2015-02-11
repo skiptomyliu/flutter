@@ -38,6 +38,14 @@ class LeftView: NSView, ConnectionCallbackDelegate {
         
     }
     
+    // Arg:  Dictionary
+    // Returns reverse sort of an array of keys based on value
+    func sortDict(dict: [String:Int]) -> [String] {
+        return (dict as NSDictionary).keysSortedByValueUsingComparator {
+            ($1 as NSNumber).compare($0 as NSNumber)
+        } as [String]
+    }
+    
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.cityCountViews = [self.cityCountView0,self.cityCountView1,self.cityCountView2,self.cityCountView3]
@@ -46,38 +54,34 @@ class LeftView: NSView, ConnectionCallbackDelegate {
             
             var counterCity = [String:Int]()
             var counterCountry = [String:Int]()
-            var maxCity = 0
-            var maxCountry = 0
+            
             for lsofloc in lsofLocations {
-                let lsof = lsofloc.lsof
                 let location = lsofloc.location
-                let keyStr = "\(location.latitude)\(location.longitude)"
-                let cityKey = "\(location.city)\(location.country)"
+                let city = location.city != "" ? location.city : "(No City)"
+                let cityKey = "\(city), \(location.country)"
                 let countryKey = "\(location.country)"
                 
-                counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1:1
-
-                if (counterCity[cityKey] > maxCity) {
-                    maxCity = counterCity[cityKey]!
-                }
-                
+                counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1 : 1
                 counterCountry[countryKey] = counterCountry[countryKey] != nil ? counterCountry[countryKey]!+1:1
             }
             
             var i = 0
-            println("dividing by \(Double(maxCity))")
-            for (key,value) in counterCity {
-                self.cityCountViews[i].label.stringValue = key
-                self.cityCountViews[i].indicator.doubleValue = self.cityCountViews[i].indicator.doubleValue/Double(maxCity)
+            println(counterCity)
+            println(self.sortDict(counterCity))
+            let sortedCityKeys = self.sortDict(counterCity)
+            let maxConnectionCount = Double(counterCity[sortedCityKeys[0]]!)
+            for cityKey in sortedCityKeys {
+                self.cityCountViews[i].label.stringValue = cityKey
+                self.cityCountViews[i].indicator.doubleValue = Double(counterCity[cityKey]!)/maxConnectionCount
                 if ( ++i > 3 ) {
                     i=0
                     break;
                 }
             }
+            
             for (key,value) in counterCountry {
                 self.countryCountViews[i].label.stringValue = key
             }
-        
         })
         
     }
