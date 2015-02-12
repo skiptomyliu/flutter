@@ -13,8 +13,8 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="232" height="29"/>
+        <customView wantsLayer="YES" id="c22-O7-iKe" customClass="NSTableCellView">
+            <rect key="frame" x="0.0" y="0.0" width="200" height="29"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bGU-ee-mFP">
@@ -25,8 +25,8 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <levelIndicator verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xM0-G4-hTW">
-                    <rect key="frame" x="121" y="8" width="102" height="12"/>
+                <levelIndicator wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xM0-G4-hTW">
+                    <rect key="frame" x="121" y="8" width="73" height="12"/>
                     <levelIndicatorCell key="cell" editable="YES" userInterfaceLayoutDirection="rightToLeft" alignment="left" doubleValue="1" maxValue="1" warningValue="1" criticalValue="1" levelIndicatorStyle="relevancy" id="y9N-pt-6oY"/>
                 </levelIndicator>
             </subviews>

@@ -20,9 +20,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     var counterCountry = [String:Int]()
     
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
-
-        
-        self.leftView.handleMapConnections(lsofLocations)
+//        self.leftView.handleMapConnections(lsofLocations)
         
         for lsofLocation in lsofLocations {
             let lsof = lsofLocation.lsof
@@ -56,7 +54,8 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         let co = ConnectionOperation()
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
-        co.delegate = self
+        co.delegates.append(self)
+        co.delegates.append(self.leftView)
         operationQueue.addOperations([co], waitUntilFinished: false)
     }
     

@@ -14,7 +14,7 @@ protocol ConnectionCallbackDelegate {
 }
 
 class ConnectionOperation: NSOperation {
-    var delegate: ConnectionCallbackDelegate?
+    var delegates = [ConnectionCallbackDelegate]()
     let delay:NSTimeInterval = 10 //XXX:  Todo, put this in plist
     
     override func main() {
@@ -36,7 +36,11 @@ class ConnectionOperation: NSOperation {
                 mapConnections.append(LsofLocation(location: loc!, lsof: lsof))
             }
         }
-        delegate?.handleMapConnections(mapConnections)
+        
+        for delegate in delegates {
+            println(delegate)
+            delegate.handleMapConnections(mapConnections)
+        }
         NSThread.sleepForTimeInterval(self.delay)
     }
 }

@@ -9,11 +9,17 @@
 import Foundation
 import Cocoa
 
-class CountView: NSView {
+class CountView: NSTableCellView {
     @IBOutlet var label: NSTextField!
     @IBOutlet var indicator: NSLevelIndicator!
     @IBOutlet var view: NSView!
     
+    
+    func loadItem(#title: String, indicatorValue: Double) {
+        self.label.stringValue = title
+        self.indicator.doubleValue = indicatorValue
+    }
+
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
     }

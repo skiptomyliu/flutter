@@ -87,7 +87,7 @@ class GeoIpManager{
                 let locId = rs.stringForColumn("locId").toInt()!
                 let country = rs.stringForColumn("country")
                 let region = rs.stringForColumn("region")
-                let city = rs.stringForColumn("city")
+                let city = rs.stringForColumn("city") != nil ? rs.stringForColumn("city") : ""
                 let postalCode = rs.stringForColumn("postalCode")
                 let latitude = rs.doubleForColumn("latitude");
                 let longitude = rs.doubleForColumn("longitude")

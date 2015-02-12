@@ -9,17 +9,17 @@
 import Cocoa
 import MapKit
 
-class LeftView: NSVisualEffectView, ConnectionCallbackDelegate {
-    @IBOutlet var cityCountView0: CountView!
-    @IBOutlet var cityCountView1: CountView!
-    @IBOutlet var cityCountView2: CountView!
-    @IBOutlet var cityCountView3: CountView!
+class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataSource,NSTableViewDelegate {
+    @IBOutlet var tableView: NSTableView!
     
-    var cityCountViews = [CountView]()
-    var countryCountViews = [CountView]()
+    // Suspected compiler bug, need to typealias because it doesn't recognize it in the array without
+    typealias cityRelevance = (key: String, relevance: Double)
+    var cityRelevanceList: [cityRelevance] = []
+    var countryCountViews = [CountView]()   //delete
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
+        
     }
     
     override init(frame frameRect: NSRect) {
@@ -39,41 +39,53 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate {
     }
     
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.cityCountViews = [self.cityCountView0,self.cityCountView1,self.cityCountView2,self.cityCountView3]
-//            self.countryCountViews = [self.countrCountView0, self.countrCountView1, self.countrCountView2, self.countrCountView3]
-            let operationQueue = NSOperationQueue()
+        var counterCity = [String:Int]()
+        for lsofloc in lsofLocations {
+            var location = lsofloc.location
+            var city = location.city != "" ? location.city : "No City"
+            var cityKey = "\(city), \(location.country)"
+            var countryKey = "\(location.country)"
             
-            var counterCity = [String:Int]()
-            var counterCountry = [String:Int]()
-            
-            for lsofloc in lsofLocations {
-                println(lsofloc)
-                let location = lsofloc.location
-                let city = location.city != "" ? location.city : "(No City)"
-                let cityKey = "\(city), \(location.country)"
-                let countryKey = "\(location.country)"
-                
-                counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1 : 1
-                counterCountry[countryKey] = counterCountry[countryKey] != nil ? counterCountry[countryKey]!+1:1
-            }
-            
-            var i = 0
             println(counterCity)
-            println(self.sortDict(counterCity))
-            let sortedCityKeys = self.sortDict(counterCity)
-            let maxConnectionCount = Double(counterCity[sortedCityKeys[0]]!)
-            for cityKey in sortedCityKeys {
-                self.cityCountViews[i].label.stringValue = cityKey
-                self.cityCountViews[i].indicator.doubleValue = Double(counterCity[cityKey]!)/maxConnectionCount
-                if ( ++i > 3 ) {
-                    i=0
-                    break;
-                }
-            }
-        })
+            counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1 : 1
+        }
         
+        // Sort the connections
+        let sortedCityKeys = self.sortDict(counterCity)
+        let maxConnectionCount = Double(counterCity[sortedCityKeys[0]]!)
+        self.cityRelevanceList.removeAll(keepCapacity: true)
+        for cityKey in sortedCityKeys {
+            self.cityRelevanceList.append((cityKey, Double(counterCity[cityKey]!)/maxConnectionCount))
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            self.tableView.reloadData()
+        })//end main queue
     }
+    
+    /* 
+    
+    Begin TableView delegates
+    
+    */
+    func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
+        return cityRelevanceList.count
+    }
+    
+    func tableView(tview: NSTableView, viewForTableColumn col: NSTableColumn?, row: Int) -> NSView? {
+        var (title, relevanceValue) = cityRelevanceList[row]
+        var cell: CountView? = tableView.makeViewWithIdentifier("countviewid", owner: self) as? CountView
+        
+        if cell == nil {
+            cell = CountView(frame: NSRect(x: 0, y: 0, width: self.tableView.frame.width, height: 25))
+        }
+        cell?.loadItem(title: title, indicatorValue: relevanceValue)
 
+        return cell
+    }
+    
+    
+    func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        return 25
+    }
 
 }
