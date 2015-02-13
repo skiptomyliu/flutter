@@ -20,8 +20,6 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     var counterCountry = [String:Int]()
     
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
-//        self.leftView.handleMapConnections(lsofLocations)
-        
         for lsofLocation in lsofLocations {
             let lsof = lsofLocation.lsof
             let location = lsofLocation.location

@@ -11,10 +11,12 @@ import Foundation
 class LsofLocation {
     var location: Location
     var lsof: Lsof
+    var metadata: ProcessMetadata
     
-    init(location: Location, lsof: Lsof) {
+    init(location: Location, lsof: Lsof, metadata: ProcessMetadata) {
         self.location = location
         self.lsof = lsof
+        self.metadata = metadata
     }
     
     var description: String {

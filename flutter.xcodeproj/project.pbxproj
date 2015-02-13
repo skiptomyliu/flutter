@@ -18,7 +18,6 @@
 		051F969B1A82AF26008E7416 /* Lsof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F96981A82AF26008E7416 /* Lsof.swift */; };
 		051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F96991A82AF26008E7416 /* SystemCall.swift */; };
 		051F969F1A82AF3A008E7416 /* lsof.sh in Resources */ = {isa = PBXBuildFile; fileRef = 051F969E1A82AF3A008E7416 /* lsof.sh */; };
-		053BE42A1A8564C600874341 /* DependentOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053BE4291A8564C600874341 /* DependentOperation.swift */; };
 		053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE71A84181B00E8DA73 /* IPAddress.swift */; };
 		053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE91A842A5900E8DA73 /* MapViewController.swift */; };
 		053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E7FEB1A842B9800E8DA73 /* MapKit.framework */; };
@@ -31,6 +30,8 @@
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
 		0575A5221A802CD400EA9787 /* flutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5211A802CD400EA9787 /* flutterTests.swift */; };
+		05A1016D1A8C3CF500182CFD /* ps.sh in Resources */ = {isa = PBXBuildFile; fileRef = 05A1016C1A8C3CF500182CFD /* ps.sh */; };
+		05A1016F1A8D633000182CFD /* ProcessMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1016E1A8D633000182CFD /* ProcessMetadata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +62,6 @@
 		051F96981A82AF26008E7416 /* Lsof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lsof.swift; sourceTree = "<group>"; };
 		051F96991A82AF26008E7416 /* SystemCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCall.swift; sourceTree = "<group>"; };
 		051F969E1A82AF3A008E7416 /* lsof.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = lsof.sh; sourceTree = "<group>"; };
-		053BE4291A8564C600874341 /* DependentOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependentOperation.swift; sourceTree = "<group>"; };
 		053E7FE71A84181B00E8DA73 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		053E7FE91A842A5900E8DA73 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		053E7FEB1A842B9800E8DA73 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -79,6 +79,8 @@
 		0575A51B1A802CD400EA9787 /* flutterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = flutterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A5201A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A5211A802CD400EA9787 /* flutterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flutterTests.swift; sourceTree = "<group>"; };
+		05A1016C1A8C3CF500182CFD /* ps.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ps.sh; sourceTree = "<group>"; };
+		05A1016E1A8D633000182CFD /* ProcessMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +155,8 @@
 				051F96991A82AF26008E7416 /* SystemCall.swift */,
 				053E7FE71A84181B00E8DA73 /* IPAddress.swift */,
 				053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */,
-				053BE4291A8564C600874341 /* DependentOperation.swift */,
 				054F2E9B1A86F60E002A117A /* LsofLocation.swift */,
+				05A1016E1A8D633000182CFD /* ProcessMetadata.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				051F969E1A82AF3A008E7416 /* lsof.sh */,
+				05A1016C1A8C3CF500182CFD /* ps.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				051F969F1A82AF3A008E7416 /* lsof.sh in Resources */,
 				051F96781A818D3F008E7416 /* locations.db in Resources */,
 				056280F51A8ABF0000E64820 /* CountView.xib in Resources */,
+				05A1016D1A8C3CF500182CFD /* ps.sh in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 			);
@@ -351,7 +355,6 @@
 			files = (
 				053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */,
 				051F969B1A82AF26008E7416 /* Lsof.swift in Sources */,
-				053BE42A1A8564C600874341 /* DependentOperation.swift in Sources */,
 				051F96911A82AF0F008E7416 /* FMDatabase.m in Sources */,
 				051F96951A82AF0F008E7416 /* FMResultSet.m in Sources */,
 				0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */,
@@ -359,6 +362,7 @@
 				053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */,
 				056280F41A8ABF0000E64820 /* CountView.swift in Sources */,
 				051F96931A82AF0F008E7416 /* FMDatabasePool.m in Sources */,
+				05A1016F1A8D633000182CFD /* ProcessMetadata.swift in Sources */,
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
 				054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */,
 				051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */,
