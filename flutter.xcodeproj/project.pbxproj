@@ -24,7 +24,7 @@
 		053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FED1A84454400E8DA73 /* ConnectionOperation.swift */; };
 		054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2E9B1A86F60E002A117A /* LsofLocation.swift */; };
 		056280F41A8ABF0000E64820 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F11A8ABF0000E64820 /* CountView.swift */; };
-		056280F51A8ABF0000E64820 /* CountView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056280F21A8ABF0000E64820 /* CountView.xib */; };
+		056280F51A8ABF0000E64820 /* CountViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056280F21A8ABF0000E64820 /* CountViewCell.xib */; };
 		056280F61A8ABF0000E64820 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F31A8ABF0000E64820 /* LeftView.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
@@ -32,6 +32,9 @@
 		0575A5221A802CD400EA9787 /* flutterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A5211A802CD400EA9787 /* flutterTests.swift */; };
 		05A1016D1A8C3CF500182CFD /* ps.sh in Resources */ = {isa = PBXBuildFile; fileRef = 05A1016C1A8C3CF500182CFD /* ps.sh */; };
 		05A1016F1A8D633000182CFD /* ProcessMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A1016E1A8D633000182CFD /* ProcessMetadata.swift */; };
+		05A101711A8D83F300182CFD /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101701A8D83F300182CFD /* AppView.swift */; };
+		05A101731A8D8B9900182CFD /* AppViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A101721A8D8B9900182CFD /* AppViewCell.xib */; };
+		05A101751A8D8C1400182CFD /* AppViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101741A8D8C1400182CFD /* AppViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +72,7 @@
 		053E7FEF1A855B9500E8DA73 /* flutter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = flutter.entitlements; sourceTree = "<group>"; };
 		054F2E9B1A86F60E002A117A /* LsofLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LsofLocation.swift; sourceTree = "<group>"; };
 		056280F11A8ABF0000E64820 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
-		056280F21A8ABF0000E64820 /* CountView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountView.xib; sourceTree = "<group>"; };
+		056280F21A8ABF0000E64820 /* CountViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewCell.xib; sourceTree = "<group>"; };
 		056280F31A8ABF0000E64820 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -81,6 +84,9 @@
 		0575A5211A802CD400EA9787 /* flutterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flutterTests.swift; sourceTree = "<group>"; };
 		05A1016C1A8C3CF500182CFD /* ps.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = ps.sh; sourceTree = "<group>"; };
 		05A1016E1A8D633000182CFD /* ProcessMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessMetadata.swift; sourceTree = "<group>"; };
+		05A101701A8D83F300182CFD /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		05A101721A8D8B9900182CFD /* AppViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppViewCell.xib; sourceTree = "<group>"; };
+		05A101741A8D8C1400182CFD /* AppViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,8 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				056280F11A8ABF0000E64820 /* CountView.swift */,
-				056280F21A8ABF0000E64820 /* CountView.xib */,
+				056280F21A8ABF0000E64820 /* CountViewCell.xib */,
 				056280F31A8ABF0000E64820 /* LeftView.swift */,
+				05A101701A8D83F300182CFD /* AppView.swift */,
+				05A101741A8D8C1400182CFD /* AppViewCell.swift */,
+				05A101721A8D8B9900182CFD /* AppViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,9 +341,10 @@
 			files = (
 				051F969F1A82AF3A008E7416 /* lsof.sh in Resources */,
 				051F96781A818D3F008E7416 /* locations.db in Resources */,
-				056280F51A8ABF0000E64820 /* CountView.xib in Resources */,
+				056280F51A8ABF0000E64820 /* CountViewCell.xib in Resources */,
 				05A1016D1A8C3CF500182CFD /* ps.sh in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
+				05A101731A8D8B9900182CFD /* AppViewCell.xib in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +376,8 @@
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
 				054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */,
 				051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */,
+				05A101711A8D83F300182CFD /* AppView.swift in Sources */,
+				05A101751A8D8C1400182CFD /* AppViewCell.swift in Sources */,
 				053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */,
 				051F96941A82AF0F008E7416 /* FMDatabaseQueue.m in Sources */,
 				056280F61A8ABF0000E64820 /* LeftView.swift in Sources */,
