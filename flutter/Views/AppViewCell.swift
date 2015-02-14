@@ -21,12 +21,6 @@ class AppViewCell: NSTableCellView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
     }
-//    
-//    convenience init(frame frameRect: NSRect, title: String, fillPercentage: Double) {
-//        self.init(frame: frameRect)
-//        self.indicator.doubleValue = fillPercentage
-//        self.label.stringValue = title
-//    }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

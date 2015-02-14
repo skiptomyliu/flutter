@@ -58,12 +58,6 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
         }
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
-            
-            println("testing: \(lsofLocations[3].lsof.pid)")
-            var image:NSImage? = lsofLocations[3].metadata.iconImage
-            var imageview = NSImageView(frame: NSRect(x: 10,y: 10,width: 64,height: 64))
-            imageview.image = image
-            self.addSubview(imageview)
         })//end main queue
     }
     

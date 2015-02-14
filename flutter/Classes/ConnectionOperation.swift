@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 protocol ConnectionCallbackDelegate {
     func handleMapConnections([(LsofLocation)])
 }
@@ -28,6 +27,9 @@ class ConnectionOperation: NSOperation {
         
         let geoip = GeoIpManager()
         var mapConnections = [LsofLocation]()
+        
+       
+        
         for line in lines{
             if (line.isEmpty == false) {
                 let lsof = Lsof(raw_line: line, delimiter: "~")
@@ -37,6 +39,8 @@ class ConnectionOperation: NSOperation {
                 
                 if loc != nil {
                     mapConnections.append(LsofLocation(location: loc!, lsof: lsof, metadata: metadata))
+                    
+                    
                 }
             }
         }

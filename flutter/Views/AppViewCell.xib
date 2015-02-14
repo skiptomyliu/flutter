@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="AppViewCell" customModule="flutter" customModuleProvider="target">
             <connections>
+                <outlet property="imageView" destination="Lde-Gg-F45" id="3PB-85-tkX"/>
+                <outlet property="textField" destination="kuQ-k5-l4E" id="RKB-2d-eSe"/>
                 <outlet property="view" destination="fwY-Yu-hUI" id="79X-YM-nyC"/>
             </connections>
         </customObject>
@@ -20,7 +22,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="wM9-05-PIL"/>
                 </imageView>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kuQ-k5-l4E" userLabel="Text">
-                    <rect key="frame" x="50" y="7" width="238" height="17"/>
+                    <rect key="frame" x="37" y="7" width="261" height="17"/>
                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Application Title" id="Sc9-qe-Bo4">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>

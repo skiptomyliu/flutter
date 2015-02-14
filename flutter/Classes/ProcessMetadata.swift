@@ -19,6 +19,7 @@ import Cocoa
 
 
 class ProcessMetadata {
+    var applicationName: String = ""
     var applicationPath: String = ""
     var iconImage: NSImage?
     
@@ -34,6 +35,8 @@ class ProcessMetadata {
         var pathCount = 0
         for (index, component) in enumerate(components) {
             if (component.hasSuffix(".app")) {
+                self.applicationName = component.substringToIndex(advance(component.startIndex, countElements(component)-countElements(".app"))) // Chop off .app suffix
+
                 pathCount = index
                 break;
             }
@@ -52,7 +55,9 @@ class ProcessMetadata {
             var icnPath = "\(contentsPath)Resources/\(icon!)"
             var image: NSImage = NSWorkspace.sharedWorkspace().iconForFile(icnPath)
             self.iconImage = NSImage(contentsOfFile: icnPath)
-            self.iconImage?.size = NSMakeSize(32, 32)
+        } else {
+            self.iconImage = NSImage(named: "default_app_icon")
         }
+        self.iconImage?.size = NSMakeSize(32, 32)
     }
 }

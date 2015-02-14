@@ -35,6 +35,7 @@
 		05A101711A8D83F300182CFD /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101701A8D83F300182CFD /* AppView.swift */; };
 		05A101731A8D8B9900182CFD /* AppViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A101721A8D8B9900182CFD /* AppViewCell.xib */; };
 		05A101751A8D8C1400182CFD /* AppViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101741A8D8C1400182CFD /* AppViewCell.swift */; };
+		05A101781A8EC78E00182CFD /* default_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A101771A8EC78E00182CFD /* default_app_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		05A101701A8D83F300182CFD /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		05A101721A8D8B9900182CFD /* AppViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppViewCell.xib; sourceTree = "<group>"; };
 		05A101741A8D8C1400182CFD /* AppViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppViewCell.swift; sourceTree = "<group>"; };
+		05A101771A8EC78E00182CFD /* default_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_app_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		051F96741A818CFC008E7416 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				05A101761A8EC78E00182CFD /* Images */,
 				053E7FEF1A855B9500E8DA73 /* flutter.entitlements */,
 				051F96771A818D3F008E7416 /* locations.db */,
 			);
@@ -258,6 +261,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		05A101761A8EC78E00182CFD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				05A101771A8EC78E00182CFD /* default_app_icon.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,6 +355,7 @@
 				051F96781A818D3F008E7416 /* locations.db in Resources */,
 				056280F51A8ABF0000E64820 /* CountViewCell.xib in Resources */,
 				05A1016D1A8C3CF500182CFD /* ps.sh in Resources */,
+				05A101781A8EC78E00182CFD /* default_app_icon.png in Resources */,
 				0575A5131A802CD400EA9787 /* Images.xcassets in Resources */,
 				05A101731A8D8B9900182CFD /* AppViewCell.xib in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,

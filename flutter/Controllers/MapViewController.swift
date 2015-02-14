@@ -12,6 +12,7 @@ import MapKit
 class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var leftView: LeftView!
+    @IBOutlet var appView: AppView!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
@@ -54,6 +55,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
         co.delegates.append(self.leftView)
+        co.delegates.append(self.appView)
         operationQueue.addOperations([co], waitUntilFinished: false)
     }
     

@@ -828,6 +828,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="appView" destination="pzo-Xe-WaI" id="Xpt-ep-SFb"/>
                         <outlet property="leftView" destination="BeQ-Xq-la8" id="Ccz-8C-DEp"/>
                         <outlet property="mapView" destination="7iF-57-fob" id="Odz-pW-kxy"/>
                     </connections>
