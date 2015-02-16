@@ -22,10 +22,12 @@ class ProcessMetadata {
     var applicationName: String = ""
     var applicationPath: String = ""
     var iconImage: NSImage?
+    var pid: Int
     
-    init(pid: String) {
+    init(pid: Int) {
+        self.pid = pid
         let psPath = NSBundle.mainBundle().pathForResource("ps", ofType: "sh")
-        let rawAppPath:NSString = SystemCall(cmd: psPath!, args: [pid]).run()
+        let rawAppPath:NSString = SystemCall(cmd: psPath!, args: ["\(pid)"]).run()
         self.initAppPath(rawAppPath)
         self.initIconImage()
     }

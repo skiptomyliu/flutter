@@ -9,45 +9,55 @@
 import Cocoa
 import MapKit
 
-class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate {
+class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate, AppViewDelegate {
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var detailsView: DetailsView!
+    @IBOutlet var summaryView: SummaryView!
     @IBOutlet var appView: AppView!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
     
-    var counterCity = [String:Int]()
-    var counterCountry = [String:Int]()
+    func appRowSelected(lsofLocations: [LsofLocation]) {
+        /* load the details of the app and show only locations pertaining to selected app */
+        self.mapView.removeAnnotations(self.mapView.annotations)
+        self.addAnnotations(lsofLocations)
+    }
     
-    func handleMapConnections(lsofLocations: [(LsofLocation)]) {
-        for lsofLocation in lsofLocations {
-            let lsof = lsofLocation.lsof
-            let location = lsofLocation.location
-            let keyStr = "\(location.latitude)\(location.longitude)"
-
-            if uniqueLocationDict[keyStr] == nil {
-                uniqueLocationDict[keyStr] = 1
-                let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-                var annotation = MKPointAnnotation()
-                annotation.coordinate = coord
-                annotation.title = lsof.command
-                annotation.subtitle = location.locationString()
-                self.mapView.addAnnotation(annotation)
-            }
-        }
-        
-        counterCountry = [String:Int]()
-        counterCity = [String:Int]()
-        
+    func handleMapConnections(lsofLocations: [LsofLocation]) {
+        self.addAnnotations(lsofLocations)
         self.queueOperation()
+    }
+    
+    func addAnnotations(lsofLocations: [LsofLocation]) {
+        for lsofLocation in lsofLocations {
+            self.addAnnotation(lsofLocation)
+        }
+    }
+    
+    func addAnnotation(lsofLocation: LsofLocation) {
+        let lsof = lsofLocation.lsof
+        let location = lsofLocation.location
+        let metadata = lsofLocation.metadata
+        let keyStr = "\(location.latitude)\(location.longitude)"
+        
+//        if uniqueLocationDict[keyStr] == nil {
+            uniqueLocationDict[keyStr] = 1
+            let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = coord
+            annotation.title = metadata.applicationName
+            annotation.subtitle = location.locationString()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.mapView.addAnnotation(annotation)
+            })//end main queue
+//        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.appView.delegate = self.detailsView
+        self.appView.delegate = self
         self.queueOperation()
     }
     
@@ -57,7 +67,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
-        co.delegates.append(self.detailsView)
+        co.delegates.append(self.summaryView)
         co.delegates.append(self.appView)
         operationQueue.addOperations([co], waitUntilFinished: false)
     }

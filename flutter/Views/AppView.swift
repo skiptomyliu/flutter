@@ -11,7 +11,7 @@ import Cocoa
 
 
 protocol AppViewDelegate {
-    func appRowSelected(row: Int)
+    func appRowSelected(lsofLocation: [LsofLocation])
 }
 
 
@@ -19,19 +19,26 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
     @IBOutlet var tableView: NSTableView!
 
     var appmetadatas = [ProcessMetadata]()
-    var pidsList = [(String)]() //XXX:  Change this to use native Sets after SDK upates
+//    var pidsList = [(Int)]() //XXX:  Change this to use native Sets after SDK upates
     var delegate: AppViewDelegate?
+    var pidLsofDict = [Int: [LsofLocation]]()
     
     func handleMapConnections(lsoflocations: [(LsofLocation)]) {
         for lsofLocation in lsoflocations {
             var lsof = lsofLocation.lsof
             
-            if (contains(self.pidsList, lsof.pid) == false) {
-                self.pidsList.append(lsof.pid)
+            if (contains(self.pidLsofDict.keys, lsof.pid) == false) {
                 self.appmetadatas.append(ProcessMetadata(pid: lsof.pid))
+            }
+            
+            if (self.pidLsofDict[lsof.pid] == nil) {
+                self.pidLsofDict[lsof.pid] = [lsofLocation]
+            }else {
+                self.pidLsofDict[lsof.pid]!.append(lsofLocation)
             }
         }
         
+//        println(self.pidLsofDict)
         dispatch_async(dispatch_get_main_queue(), {
             self.tableView.reloadData()
         })//end main queue
@@ -42,6 +49,17 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
     Begin TableView delegates
     
     */
+    
+    func tableViewSelectionDidChange(notification: NSNotification) {
+        let selectedRow = self.tableView.selectedRow
+        if (selectedRow != -1) {
+            let selectedPid = self.appmetadatas[selectedRow].pid
+            
+            delegate?.appRowSelected( self.pidLsofDict[selectedPid]! )
+            //Update Details Screen
+        }
+    }
+    
     func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
         return self.appmetadatas.count
     }
@@ -58,13 +76,7 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
         return cell
     }
     
-    func tableViewSelectionDidChange(notification: NSNotification) {
-        let selectedRow = self.tableView.selectedRow
-        if (selectedRow != -1) {
-            delegate?.appRowSelected(selectedRow)
-            //Update Details Screen
-        }
-    }
+    
     
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 32
