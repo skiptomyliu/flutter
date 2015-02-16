@@ -11,7 +11,7 @@ import MapKit
 
 class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate {
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var leftView: LeftView!
+    @IBOutlet var detailsView: DetailsView!
     @IBOutlet var appView: AppView!
     
     var uniqueLocationDict = [String: Int]()
@@ -45,16 +45,19 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
+        self.appView.delegate = self.detailsView
         self.queueOperation()
     }
     
+    // Move queue operation somewhere else?
     func queueOperation() {
         let co = ConnectionOperation()
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
-        co.delegates.append(self.leftView)
+        co.delegates.append(self.detailsView)
         co.delegates.append(self.appView)
         operationQueue.addOperations([co], waitUntilFinished: false)
     }

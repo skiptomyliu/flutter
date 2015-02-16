@@ -25,7 +25,7 @@
 		054F2E9C1A86F60E002A117A /* LsofLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054F2E9B1A86F60E002A117A /* LsofLocation.swift */; };
 		056280F41A8ABF0000E64820 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F11A8ABF0000E64820 /* CountView.swift */; };
 		056280F51A8ABF0000E64820 /* CountViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 056280F21A8ABF0000E64820 /* CountViewCell.xib */; };
-		056280F61A8ABF0000E64820 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F31A8ABF0000E64820 /* LeftView.swift */; };
+		056280F61A8ABF0000E64820 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 056280F31A8ABF0000E64820 /* DetailsView.swift */; };
 		0575A50F1A802CD400EA9787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575A50E1A802CD400EA9787 /* AppDelegate.swift */; };
 		0575A5131A802CD400EA9787 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5121A802CD400EA9787 /* Images.xcassets */; };
 		0575A5161A802CD400EA9787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0575A5141A802CD400EA9787 /* Main.storyboard */; };
@@ -74,7 +74,7 @@
 		054F2E9B1A86F60E002A117A /* LsofLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LsofLocation.swift; sourceTree = "<group>"; };
 		056280F11A8ABF0000E64820 /* CountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		056280F21A8ABF0000E64820 /* CountViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountViewCell.xib; sourceTree = "<group>"; };
-		056280F31A8ABF0000E64820 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
+		056280F31A8ABF0000E64820 /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		0575A5091A802CD400EA9787 /* flutter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = flutter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0575A50D1A802CD400EA9787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0575A50E1A802CD400EA9787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,7 +192,7 @@
 			children = (
 				056280F11A8ABF0000E64820 /* CountView.swift */,
 				056280F21A8ABF0000E64820 /* CountViewCell.xib */,
-				056280F31A8ABF0000E64820 /* LeftView.swift */,
+				056280F31A8ABF0000E64820 /* DetailsView.swift */,
 				05A101701A8D83F300182CFD /* AppView.swift */,
 				05A101741A8D8C1400182CFD /* AppViewCell.swift */,
 				05A101721A8D8B9900182CFD /* AppViewCell.xib */,
@@ -393,7 +393,7 @@
 				05A101751A8D8C1400182CFD /* AppViewCell.swift in Sources */,
 				053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */,
 				051F96941A82AF0F008E7416 /* FMDatabaseQueue.m in Sources */,
-				056280F61A8ABF0000E64820 /* LeftView.swift in Sources */,
+				056280F61A8ABF0000E64820 /* DetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

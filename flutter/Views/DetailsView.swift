@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataSource,NSTableViewDelegate {
+class DetailsView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCallbackDelegate, AppViewDelegate {
     @IBOutlet var tableView: NSTableView!
     
     // Suspected compiler bug, need to typealias because it doesn't recognize it in the array without
@@ -37,7 +37,18 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
             ($1 as NSNumber).compare($0 as NSNumber)
         } as [String]
     }
+    /*
     
+    Begin Delegates
+    
+    */
+    
+    func appRowSelected(row: Int) {
+        /* load the details of the app */
+        
+    }
+    
+    // ConnectionCallbackDelegate
     func handleMapConnections(lsofLocations: [(LsofLocation)]) {
         var counterCity = [String:Int]()
         for lsofloc in lsofLocations {
@@ -69,6 +80,7 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
     func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
         return cityRelevanceList.count
     }
+    
     
     func tableView(tview: NSTableView, viewForTableColumn col: NSTableColumn?, row: Int) -> NSView? {
         var (title, relevanceValue) = cityRelevanceList[row]

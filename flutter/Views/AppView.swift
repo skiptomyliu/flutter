@@ -9,11 +9,18 @@
 import Foundation
 import Cocoa
 
+
+protocol AppViewDelegate {
+    func appRowSelected(row: Int)
+}
+
+
 class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCallbackDelegate {
     @IBOutlet var tableView: NSTableView!
 
     var appmetadatas = [ProcessMetadata]()
     var pidsList = [(String)]() //XXX:  Change this to use native Sets after SDK upates
+    var delegate: AppViewDelegate?
     
     func handleMapConnections(lsoflocations: [(LsofLocation)]) {
         for lsofLocation in lsoflocations {
@@ -52,7 +59,11 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
     }
     
     func tableViewSelectionDidChange(notification: NSNotification) {
-        println("notification: \(notification)")
+        let selectedRow = self.tableView.selectedRow
+        if (selectedRow != -1) {
+            delegate?.appRowSelected(selectedRow)
+            //Update Details Screen
+        }
     }
     
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
