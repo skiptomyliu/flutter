@@ -44,6 +44,10 @@ class ProcessMetadata {
             }
         }
         self.applicationPath = "/".join(components[0...pathCount])
+        
+        if self.applicationName == "" {
+            self.applicationName = rawCommandPath
+        }
     }
     
     private func initIconImage() {

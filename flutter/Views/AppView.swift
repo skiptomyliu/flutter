@@ -63,7 +63,7 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
         var lsofLocations: [LsofLocation]
         if selectedRow >= 0 {
             let selectedPid = self.appmetadatas[selectedRow].pid
-            lsofLocations = self.pidLsofDict[selectedPid]!
+            lsofLocations = self.pidLsofDict[selectedPid] ?? []
         } else { // Deselected row
             lsofLocations = []
         }

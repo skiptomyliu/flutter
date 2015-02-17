@@ -28,20 +28,15 @@ class ConnectionOperation: NSOperation {
         let geoip = GeoIpManager()
         var mapConnections = [LsofLocation]()
         
-       
-        
         for line in lines{
             if (line.isEmpty == false) {
                 let lsof = Lsof(raw_line: line, delimiter: "~")
                 let ps_path = NSBundle.mainBundle().pathForResource("ps", ofType: "sh")
                 let metadata = ProcessMetadata(pid: lsof.pid)
-                let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip)
-                
-                if loc != nil {
-                    mapConnections.append(LsofLocation(location: loc!, lsof: lsof, metadata: metadata))
-                    
-                    
-                }
+                let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip) ?? Location(locId: 0, country: "US", region: "", city: "", postalCode: "", latitude: 0.0, longitude: 0.0, metroCode: 0, areaCode: 0)
+//                if loc != nil {
+                    mapConnections.append(LsofLocation(location: loc, lsof: lsof, metadata: metadata))
+//                }
             }
         }
         
