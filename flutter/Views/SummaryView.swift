@@ -43,13 +43,13 @@ class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegat
     
     */
     
-    func appRowSelected(lsofLocations: [LsofLocation]) {
+    func appViewRowSelected(lsofLocations: [LsofLocation]) {
         /* load the details of the app */
         println("row: \(lsofLocations)")
     }
     
     // ConnectionCallbackDelegate
-    func handleMapConnections(lsofLocations: [(LsofLocation)]) {
+    func connectionOperationHandleMapConnections(lsofLocations: [(LsofLocation)]) {
         var counterCity = [String:Int]()
         for lsofloc in lsofLocations {
             var location = lsofloc.location

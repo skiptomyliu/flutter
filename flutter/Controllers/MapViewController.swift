@@ -13,17 +13,26 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var summaryView: SummaryView!
     @IBOutlet var appView: AppView!
+    @IBOutlet var detailsView: DetailsView!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
+    var savedLsofLocations = [LsofLocation]()
     
-    func appRowSelected(lsofLocations: [LsofLocation]) {
+    // AppView delegate callback method
+    func appViewRowSelected(lsofLocations: [LsofLocation]) {
         /* load the details of the app and show only locations pertaining to selected app */
         self.mapView.removeAnnotations(self.mapView.annotations)
-        self.addAnnotations(lsofLocations)
+        if lsofLocations.count > 0 {
+            self.addAnnotations(lsofLocations)
+        } else {
+            self.addAnnotations(self.savedLsofLocations)
+        }
     }
     
-    func handleMapConnections(lsofLocations: [LsofLocation]) {
+    // ConnectionOperations delegate callback method
+    func connectionOperationHandleMapConnections(lsofLocations: [LsofLocation]) {
+        self.savedLsofLocations = lsofLocations
         self.addAnnotations(lsofLocations)
         self.queueOperation()
     }
@@ -57,7 +66,8 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.appView.delegate = self
+        self.appView.delegates.append(self)
+        self.appView.delegates.append(self.detailsView)
         self.queueOperation()
     }
     

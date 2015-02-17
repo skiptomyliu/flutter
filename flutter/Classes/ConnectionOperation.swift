@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ConnectionCallbackDelegate {
-    func handleMapConnections([(LsofLocation)])
+    func connectionOperationHandleMapConnections([(LsofLocation)])
 }
 
 class ConnectionOperation: NSOperation {
@@ -46,7 +46,7 @@ class ConnectionOperation: NSOperation {
         }
         
         for delegate in delegates {
-            delegate.handleMapConnections(mapConnections)
+            delegate.connectionOperationHandleMapConnections(mapConnections)
         }
         NSThread.sleepForTimeInterval(self.delay)
     }
