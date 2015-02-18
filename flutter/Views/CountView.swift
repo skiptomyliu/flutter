@@ -32,7 +32,7 @@ class CountView: NSTableCellView {
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        NSBundle.mainBundle().loadNibNamed("CountView", owner: self, topLevelObjects: nil)
+        NSBundle.mainBundle().loadNibNamed("CountViewCell", owner: self, topLevelObjects: nil)
         let contentFrame = NSMakeRect(0, 0, frame.size.width, frame.size.height)
         self.view.frame = contentFrame
         self.addSubview(self.view)
@@ -40,7 +40,7 @@ class CountView: NSTableCellView {
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        NSBundle.mainBundle().loadNibNamed("CountView", owner: self, topLevelObjects: nil)
+        NSBundle.mainBundle().loadNibNamed("CountViewCell", owner: self, topLevelObjects: nil)
         let contentFrame = NSMakeRect(0, 0, self.frame.size.width, self.frame.size.height)
         self.view.frame = contentFrame
         self.addSubview(self.view)

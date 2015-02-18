@@ -8,9 +8,8 @@
 
 import Foundation
 
-
 protocol ConnectionCallbackDelegate {
-    func handleMapConnections([(LsofLocation)])
+    func connectionOperationHandleMapConnections([(LsofLocation)])
 }
 
 class ConnectionOperation: NSOperation {
@@ -23,23 +22,26 @@ class ConnectionOperation: NSOperation {
         }
         
         let lsof_path = NSBundle.mainBundle().pathForResource("lsof", ofType: "sh")
-        let sc = SystemCall(cmd: lsof_path!, args: []);
-        let result = sc.run()
+        let result = SystemCall(cmd: lsof_path!, args: []).run()
         let lines = result.componentsSeparatedByString("\n");
         
         let geoip = GeoIpManager()
         var mapConnections = [LsofLocation]()
+        
         for line in lines{
-            let lsof = Lsof(raw_line: line, delimiter: "~")
-            let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip)
-            if loc != nil {
-                mapConnections.append(LsofLocation(location: loc!, lsof: lsof))
+            if (line.isEmpty == false) {
+                let lsof = Lsof(raw_line: line, delimiter: "~")
+                let ps_path = NSBundle.mainBundle().pathForResource("ps", ofType: "sh")
+                let metadata = ProcessMetadata(pid: lsof.pid)
+                let loc = geoip.region_from_ipaddress(lsof.ip_dst.ip) ?? Location(locId: 0, country: "US", region: "", city: "", postalCode: "", latitude: 0.0, longitude: 0.0, metroCode: 0, areaCode: 0)
+//                if loc != nil {
+                    mapConnections.append(LsofLocation(location: loc, lsof: lsof, metadata: metadata))
+//                }
             }
         }
         
         for delegate in delegates {
-            println(delegate)
-            delegate.handleMapConnections(mapConnections)
+            delegate.connectionOperationHandleMapConnections(mapConnections)
         }
         NSThread.sleepForTimeInterval(self.delay)
     }

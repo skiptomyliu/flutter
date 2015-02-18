@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataSource,NSTableViewDelegate {
+class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCallbackDelegate, AppViewDelegate {
     @IBOutlet var tableView: NSTableView!
     
     // Suspected compiler bug, need to typealias because it doesn't recognize it in the array without
@@ -37,8 +37,19 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
             ($1 as NSNumber).compare($0 as NSNumber)
         } as [String]
     }
+    /*
     
-    func handleMapConnections(lsofLocations: [(LsofLocation)]) {
+    Begin Delegates
+    
+    */
+    
+    func appViewRowSelected(lsofLocations: [LsofLocation]) {
+        /* load the details of the app */
+        println("row: \(lsofLocations)")
+    }
+    
+    // ConnectionCallbackDelegate
+    func connectionOperationHandleMapConnections(lsofLocations: [(LsofLocation)]) {
         var counterCity = [String:Int]()
         for lsofloc in lsofLocations {
             var location = lsofloc.location
@@ -46,7 +57,6 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
             var cityKey = "\(city), \(location.country)"
             var countryKey = "\(location.country)"
             
-            println(counterCity)
             counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1 : 1
         }
         
@@ -87,5 +97,5 @@ class LeftView: NSVisualEffectView, ConnectionCallbackDelegate, NSTableViewDataS
     func tableView(tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         return 25
     }
-
+    
 }
