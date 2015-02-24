@@ -25,17 +25,17 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
     func connectionOperationHandleMapConnections(lsoflocations: [(LsofLocation)]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.pidLsofDict.removeAll(keepCapacity: true)
+            self.appmetadatas.removeAll(keepCapacity: true)
             
             for lsofLocation in lsoflocations {
                 var lsof = lsofLocation.lsof
-                
                 if (self.containsMetadata(lsofLocation.metadata, metadatas: self.appmetadatas) == false) {
                     self.appmetadatas.append(ProcessMetadata(pid: lsof.pid))
                 }
-                
+        
                 if (self.pidLsofDict[lsof.pid] == nil) {
                     self.pidLsofDict[lsof.pid] = [lsofLocation]
-                }else {
+                } else {
                     self.pidLsofDict[lsof.pid]!.append(lsofLocation)
                 }
             }
@@ -84,7 +84,7 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
             cell = AppViewCell(frame: NSRect(x: 0, y: 0, width: self.tableView.frame.width, height: 25))
         }
         var metadata = self.appmetadatas[row]
-        cell?.loadItem(title: metadata.applicationName, image: metadata.iconImage!)
+        cell?.loadItem(title: "\(metadata.applicationName)(\(metadata.pid))", image: metadata.iconImage!)
         
         return cell
     }

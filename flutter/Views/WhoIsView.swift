@@ -33,9 +33,11 @@ class WhoIsView: NSView, DetailsViewDelegate {
     }
     
     // DetailsView delegate
-    func detailsViewSelectedApp(lsofLocation: LsofLocation) {
-        let whois = WhoIs(ip: lsofLocation.lsof.ip_dst.ip)
-        self.textView.string = whois.data
+    func detailsViewSelectedApp(lsofLocation: LsofLocation?) {
+        if (lsofLocation != nil) {
+            let whois = WhoIs(ip: lsofLocation!.lsof.ip_dst.ip)
+            self.textView.string = whois.data
+        }
     }
 }
 

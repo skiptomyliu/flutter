@@ -9,7 +9,7 @@
 import Cocoa
 import MapKit
 
-class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate, AppViewDelegate {
+class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate, AppViewDelegate, DetailsViewDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var summaryView: SummaryView!
     @IBOutlet var appView: AppView!
@@ -35,6 +35,14 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         self.savedLsofLocations = lsofLocations
         self.addAnnotations(lsofLocations)
         self.queueOperation()
+    }
+    
+    // DetailsView delegate callback method
+    func detailsViewSelectedApp(lsofLocation: LsofLocation?) {
+        if (lsofLocation != nil) {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.addAnnotation(lsofLocation!)
+        }
     }
     
     func addAnnotations(lsofLocations: [LsofLocation]) {
@@ -68,6 +76,10 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         // Do any additional setup after loading the view.
         self.appView.delegates.append(self)
         self.appView.delegates.append(self.detailsView)
+        
+        self.detailsView.delegates.append(self.detailsView.whoisView)
+        self.detailsView.delegates.append(self)
+        
         self.queueOperation()
     }
     

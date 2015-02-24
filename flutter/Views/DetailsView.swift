@@ -10,7 +10,7 @@ import Foundation
 import Cocoa
 
 protocol DetailsViewDelegate {
-    func detailsViewSelectedApp(lsofLocation: LsofLocation)
+    func detailsViewSelectedApp(lsofLocation: LsofLocation?)
 }
 
 class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDelegate {
@@ -18,7 +18,7 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
     @IBOutlet var view: NSView!
     @IBOutlet var whoisView: WhoIsView!
     
-    var delegate: DetailsViewDelegate?
+    var delegates = [DetailsViewDelegate]()
     var lsofLocations = [LsofLocation]()
     
     override func drawRect(dirtyRect: NSRect) {
@@ -27,7 +27,6 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        self.delegate = self.whoisView
         NSBundle.mainBundle().loadNibNamed("DetailsView", owner: self, topLevelObjects: nil)
         let contentFrame = NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, frame.size.height)
         self.frame = contentFrame
@@ -36,7 +35,6 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.delegate = self.whoisView
         NSBundle.mainBundle().loadNibNamed("DetailsView", owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
     }
@@ -54,9 +52,13 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
     */
     func tableViewSelectionDidChange(notification: NSNotification) {
         let selectedRow = self.tableView.selectedRow
+        var selectedLsof:LsofLocation?
         if (selectedRow >= 0) {
-            self.delegate = self.whoisView
-            self.delegate?.detailsViewSelectedApp(self.lsofLocations[selectedRow])
+            selectedLsof = self.lsofLocations[selectedRow]
+        }
+        
+        for delegate in delegates {
+            delegate.detailsViewSelectedApp(selectedLsof)
         }
     }
     
