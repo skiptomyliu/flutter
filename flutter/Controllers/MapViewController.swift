@@ -30,6 +30,15 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         }
     }
     
+    func zoomIn(location: Location) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
+        let region = MKCoordinateRegion(center: coord, span: span)
+        
+        self.mapView.setRegion(region, animated: false)
+        self.mapView.regionThatFits(region)
+    }
+    
     // ConnectionOperations delegate callback method
     func connectionOperationHandleMapConnections(lsofLocations: [LsofLocation]) {
         self.savedLsofLocations = lsofLocations
@@ -42,6 +51,10 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         if (lsofLocation != nil) {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.addAnnotation(lsofLocation!)
+            self.zoomIn(lsofLocation!.location)
+        } else {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.addAnnotations(self.savedLsofLocations)
         }
     }
     
@@ -56,18 +69,14 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         let location = lsofLocation.location
         let metadata = lsofLocation.metadata
         let keyStr = "\(location.latitude)\(location.longitude)"
-        
-//        if uniqueLocationDict[keyStr] == nil {
-            uniqueLocationDict[keyStr] = 1
-            let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            var annotation = MKPointAnnotation()
-            annotation.coordinate = coord
-            annotation.title = metadata.applicationName
-            annotation.subtitle = location.locationString()
-            dispatch_async(dispatch_get_main_queue(), {
-                self.mapView.addAnnotation(annotation)
-            })//end main queue
-//        }
+        let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        var annotation = MKPointAnnotation()
+        annotation.coordinate = coord
+        annotation.title = metadata.applicationName
+        annotation.subtitle = location.locationString()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.mapView.addAnnotation(annotation)
+        })//end main queue
     }
     
     override func viewDidLoad() {
