@@ -81,7 +81,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         // Do any additional setup after loading the view.
         self.appView.delegates.append(self)
         self.appView.delegates.append(self.detailsView)
