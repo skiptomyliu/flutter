@@ -43,7 +43,6 @@
 		05A1017A1A92588500182CFD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101791A92588500182CFD /* DetailsView.swift */; };
 		05A1017C1A9278AE00182CFD /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A1017B1A9278AE00182CFD /* DetailsView.xib */; };
 		05F78ED71A9FE8D7005DCAC2 /* DTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F78ED61A9FE8D7005DCAC2 /* DTableView.swift */; };
-		05F78EDB1A9FF74F005DCAC2 /* countrycodes.json in Resources */ = {isa = PBXBuildFile; fileRef = 05F78EDA1A9FF74F005DCAC2 /* countrycodes.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,7 +103,6 @@
 		05A101791A92588500182CFD /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		05A1017B1A9278AE00182CFD /* DetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsView.xib; sourceTree = "<group>"; };
 		05F78ED61A9FE8D7005DCAC2 /* DTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTableView.swift; sourceTree = "<group>"; };
-		05F78EDA1A9FF74F005DCAC2 /* countrycodes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countrycodes.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +131,6 @@
 				05A101761A8EC78E00182CFD /* Images */,
 				053E7FEF1A855B9500E8DA73 /* flutter.entitlements */,
 				051F96771A818D3F008E7416 /* locations.db */,
-				05F78EDA1A9FF74F005DCAC2 /* countrycodes.json */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				05A101731A8D8B9900182CFD /* AppViewCell.xib in Resources */,
 				0575A5161A802CD400EA9787 /* Main.storyboard in Resources */,
 				05A1017C1A9278AE00182CFD /* DetailsView.xib in Resources */,
-				05F78EDB1A9FF74F005DCAC2 /* countrycodes.json in Resources */,
 				05894A431A93AFCA00A3BCCC /* whois.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

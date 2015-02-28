@@ -53,8 +53,7 @@ class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegat
         var counterCity = [String:Int]()
         for lsofloc in lsofLocations {
             var location = lsofloc.location
-            var city = location.city != "" ? location.city : "No City"
-            var cityKey = "\(city), \(location.country)"
+            var cityKey = location.locationString()
             var countryKey = "\(location.country)"
             
             counterCity[cityKey] = counterCity[cityKey] != nil ? counterCity[cityKey]!+1 : 1

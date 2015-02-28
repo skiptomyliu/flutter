@@ -49,9 +49,11 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     // DetailsView delegate callback method
     func detailsViewSelectedApp(lsofLocation: LsofLocation?) {
         if (lsofLocation != nil) {
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.addAnnotation(lsofLocation!)
-            self.zoomIn(lsofLocation!.location)
+            if (lsofLocation!.location.latitude != 0 && lsofLocation!.location.longitude != 0) {
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                self.addAnnotation(lsofLocation!)
+                self.zoomIn(lsofLocation!.location)
+            }
         } else {
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.addAnnotations(self.savedLsofLocations)
@@ -67,16 +69,19 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     func addAnnotation(lsofLocation: LsofLocation) {
         let lsof = lsofLocation.lsof
         let location = lsofLocation.location
-        let metadata = lsofLocation.metadata
-        let keyStr = "\(location.latitude)\(location.longitude)"
-        let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = coord
-        annotation.title = metadata.applicationName
-        annotation.subtitle = location.locationString()
-        dispatch_async(dispatch_get_main_queue(), {
-            self.mapView.addAnnotation(annotation)
-        })//end main queue
+        if (location.latitude != 0 && location.longitude != 0) {
+            let metadata = lsofLocation.metadata
+            let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            
+            
+            var annotation = MKPointAnnotation()
+            annotation.coordinate = coord
+            annotation.title = metadata.applicationName
+            annotation.subtitle = location.locationString()
+            dispatch_async(dispatch_get_main_queue(), {
+                self.mapView.addAnnotation(annotation)
+            })//end main queue
+        }
     }
     
     override func viewDidLoad() {

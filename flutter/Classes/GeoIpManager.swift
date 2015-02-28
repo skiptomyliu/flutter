@@ -33,7 +33,13 @@ struct Location {
         if self.city != "" {
             return "\(self.city), \(self.region)"
         }
-        return self.country
+        let locale = NSLocale.currentLocale()
+        let displayStr = locale.displayNameForKey(NSLocaleCountryCode, value: self.country)
+        if displayStr == nil {
+            return ""
+        } else {
+            return displayStr!
+        }
     }
 }
 

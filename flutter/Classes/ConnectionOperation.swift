@@ -14,7 +14,7 @@ protocol ConnectionCallbackDelegate {
 
 class ConnectionOperation: NSOperation {
     var delegates = [ConnectionCallbackDelegate]()
-    let delay:NSTimeInterval = 10 //XXX:  Todo, put this in plist
+    let delay:NSTimeInterval = 70 //XXX:  Todo, put this in plist
     
     override func main() {
         if self.cancelled {

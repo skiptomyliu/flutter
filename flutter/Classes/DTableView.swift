@@ -14,7 +14,6 @@ import Cocoa
 class DTableView: NSTableView {
     override func mouseDown(theEvent: NSEvent) {
         super.mouseDown(theEvent)
-        
         println("mouse down is happening")
         var point = self.convertPoint(theEvent.locationInWindow, fromView: nil)
         var row = self.rowAtPoint(point)
