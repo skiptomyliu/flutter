@@ -11,13 +11,15 @@ import MapKit
 
 class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallbackDelegate, AppViewDelegate, DetailsViewDelegate {
     @IBOutlet var mapView: MKMapView!
-    @IBOutlet var summaryView: SummaryView!
     @IBOutlet var appView: AppView!
     @IBOutlet var detailsView: DetailsView!
+    @IBOutlet var progressIndicator: NSProgressIndicator!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
     var savedLsofLocations = [LsofLocation]()
+    
+    let MIN_SPAN = 1.0
     
     // AppView delegate callback method
     func appViewRowSelected(lsofLocations: [LsofLocation]) {
@@ -28,13 +30,11 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         } else {
             self.addAnnotations(self.savedLsofLocations)
         }
-        
-        
         self.zoomToFitMapAnnotations()
     }
     
     func zoomIn(location: Location) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let span = MKCoordinateSpan(latitudeDelta: self.MIN_SPAN, longitudeDelta: self.MIN_SPAN)
         let coord = CLLocationCoordinate2DMake(location.latitude, location.longitude)
         let region = MKCoordinateRegion(center: coord, span: span)
         
@@ -68,13 +68,14 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
                 latitudeDelta: fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.2,
                 longitudeDelta: fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.2
             )
+            
             // If only one point, then we add some padding, otherwise it zooms at max level
             if (span.latitudeDelta <= 0 && span.longitudeDelta <= 0 ) {
-                span.latitudeDelta = 0.25
-                span.longitudeDelta = 0.25
+                span.latitudeDelta = self.MIN_SPAN
+                span.longitudeDelta = self.MIN_SPAN
             }
-            var region = MKCoordinateRegion(center: coord, span: span)
             
+            var region = MKCoordinateRegion(center: coord, span: span)
             region = self.mapView.regionThatFits(region)
             self.mapView.setRegion(region, animated: false)
         })
@@ -82,9 +83,13 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     
     // ConnectionOperations delegate callback method
     func connectionOperationHandleMapConnections(lsofLocations: [LsofLocation]) {
-        self.savedLsofLocations = lsofLocations
-        self.addAnnotations(lsofLocations)
-        self.queueOperation()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.progressIndicator.stopAnimation(self)
+            self.progressIndicator.hidden = true
+            self.savedLsofLocations = lsofLocations
+            self.addAnnotations(lsofLocations)
+//            self.queueOperation()
+        })
     }
     
     // DetailsView delegate callback method
@@ -145,9 +150,12 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
-        co.delegates.append(self.summaryView)
         co.delegates.append(self.appView)
         operationQueue.addOperations([co], waitUntilFinished: false)
+        
+        
+        self.progressIndicator.startAnimation(self)
+        self.progressIndicator.hidden = false
     }
     
     override var representedObject: AnyObject? {
