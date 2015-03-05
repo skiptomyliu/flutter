@@ -88,7 +88,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
             self.progressIndicator.hidden = true
             self.savedLsofLocations = lsofLocations
             self.addAnnotations(lsofLocations)
-//            self.queueOperation()
+            // self.queueOperation() // Temporarily disable recalling the queueoperation
         })
     }
     
@@ -118,7 +118,6 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         if (location.latitude != 0 && location.longitude != 0) {
             let metadata = lsofLocation.metadata
             let coord: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            
             
             var annotation = MKPointAnnotation()
             annotation.coordinate = coord

@@ -34,3 +34,7 @@ class IPAddress {
         return false
     }
 }
+
+func == (lhs: IPAddress, rhs: IPAddress) -> Bool {
+    return lhs.ip == rhs.ip
+}

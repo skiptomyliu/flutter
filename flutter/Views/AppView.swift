@@ -32,15 +32,26 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
                 if (self.containsMetadata(lsofLocation.metadata, metadatas: self.appmetadatas) == false) {
                     self.appmetadatas.append(ProcessMetadata(pid: lsof.pid))
                 }
-        
+                
                 if (self.pidLsofDict[lsof.pid] == nil) {
                     self.pidLsofDict[lsof.pid] = [lsofLocation]
                 } else {
-                    self.pidLsofDict[lsof.pid]!.append(lsofLocation)
+                    if self.lsofExistsInList(self.pidLsofDict[lsof.pid]!, lsofObj: lsofLocation) == false {
+                        self.pidLsofDict[lsof.pid]!.append(lsofLocation)
+                    }
                 }
             }
             self.tableView.reloadData()
         })//end main queue
+    }
+    
+    func lsofExistsInList(list: [LsofLocation], lsofObj: LsofLocation) -> Bool{
+        for lsofLoc in list {
+            if lsofLoc.lsof.ip_dst.ip == lsofObj.lsof.ip_dst.ip {
+                return true
+            }
+        }
+        return false
     }
     
     func containsMetadata(metadata:ProcessMetadata, metadatas:[ProcessMetadata]) -> Bool {
@@ -64,6 +75,7 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
         if selectedRow >= 0 {
             let selectedPid = self.appmetadatas[selectedRow].pid
             lsofLocations = self.pidLsofDict[selectedPid] ?? []
+
         } else { // Deselected row
             lsofLocations = []
         }
