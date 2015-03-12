@@ -23,6 +23,8 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
+        NSColor.blueColor().setFill()
+        NSRectFill(dirtyRect);
     }
     
     override init(frame frameRect: NSRect) {

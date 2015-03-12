@@ -16,6 +16,8 @@ class WhoIsView: NSView, DetailsViewDelegate {
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
+        NSColor.redColor().setFill()
+        NSRectFill(dirtyRect);
     }
     
     override init(frame frameRect: NSRect) {
@@ -31,6 +33,8 @@ class WhoIsView: NSView, DetailsViewDelegate {
         NSBundle.mainBundle().loadNibNamed("WhoIsView", owner: self, topLevelObjects: nil)
         self.addSubview(self.view)
     }
+    
+    
     
     // DetailsView delegate
     func detailsViewSelectedApp(lsofLocation: LsofLocation?) {

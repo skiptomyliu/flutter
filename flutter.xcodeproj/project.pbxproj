@@ -42,6 +42,7 @@
 		05A101781A8EC78E00182CFD /* default_app_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A101771A8EC78E00182CFD /* default_app_icon.png */; };
 		05A1017A1A92588500182CFD /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A101791A92588500182CFD /* DetailsView.swift */; };
 		05A1017C1A9278AE00182CFD /* DetailsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A1017B1A9278AE00182CFD /* DetailsView.xib */; };
+		05C9FE951AAFBC70004A247E /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05C9FE941AAFBC70004A247E /* WindowController.swift */; };
 		05F78ED71A9FE8D7005DCAC2 /* DTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F78ED61A9FE8D7005DCAC2 /* DTableView.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		05A101771A8EC78E00182CFD /* default_app_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_app_icon.png; sourceTree = "<group>"; };
 		05A101791A92588500182CFD /* DetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		05A1017B1A9278AE00182CFD /* DetailsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailsView.xib; sourceTree = "<group>"; };
+		05C9FE941AAFBC70004A247E /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		05F78ED61A9FE8D7005DCAC2 /* DTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				053E7FE91A842A5900E8DA73 /* MapViewController.swift */,
+				05C9FE941AAFBC70004A247E /* WindowController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				05F78ED71A9FE8D7005DCAC2 /* DTableView.swift in Sources */,
 				05A101711A8D83F300182CFD /* AppView.swift in Sources */,
 				05A101751A8D8C1400182CFD /* AppViewCell.swift in Sources */,
+				05C9FE951AAFBC70004A247E /* WindowController.swift in Sources */,
 				053E7FEE1A84454400E8DA73 /* ConnectionOperation.swift in Sources */,
 				051F96941A82AF0F008E7416 /* FMDatabaseQueue.m in Sources */,
 				056280F61A8ABF0000E64820 /* SummaryView.swift in Sources */,
