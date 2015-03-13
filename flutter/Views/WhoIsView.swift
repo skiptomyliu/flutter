@@ -16,7 +16,6 @@ class WhoIsView: NSView, DetailsViewDelegate {
     
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-        NSColor.redColor().setFill()
         NSRectFill(dirtyRect);
     }
     
