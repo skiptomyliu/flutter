@@ -14,6 +14,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     @IBOutlet var appView: AppView!
     @IBOutlet var detailsView: DetailsView!
     @IBOutlet var progressIndicator: NSProgressIndicator!
+    @IBOutlet var refreshCheckbox: NSButton!
     
     var uniqueLocationDict = [String: Int]()
     let operationQueue = NSOperationQueue()
@@ -88,8 +89,24 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
             self.progressIndicator.hidden = true
             self.savedLsofLocations = lsofLocations
             self.addAnnotations(lsofLocations)
-            // self.queueOperation() // Temporarily disable recalling the queueoperation
+            
+
+            if (self.refreshCheckbox.state > 0) {
+                println("checkbox state: \(self.refreshCheckbox.state)")
+                self.queueOperation() // Temporarily disable recalling the queueoperation
+            }
+
         })
+    }
+    
+    @IBAction func refreshCheckboxClicked(sender: NSButton) {
+        if (sender.state <= 0) {
+            println("Cancelling operation")
+            operationQueue.cancelAllOperations()
+        } else {
+            println("Queueing operation")
+            self.queueOperation()
+        }
     }
     
     // DetailsView delegate callback method
