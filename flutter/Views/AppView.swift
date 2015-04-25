@@ -85,7 +85,7 @@ class AppView: NSView, NSTableViewDataSource, NSTableViewDelegate, ConnectionCal
         }
     }
     
-    func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
+    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
         return self.appmetadatas.count
     }
     

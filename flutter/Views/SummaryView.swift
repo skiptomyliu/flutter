@@ -34,8 +34,8 @@ class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegat
     // Returns reverse sort of an array of keys based on value
     func sortDict(dict: [String:Int]) -> [String] {
         return (dict as NSDictionary).keysSortedByValueUsingComparator {
-            ($1 as NSNumber).compare($0 as NSNumber)
-        } as [String]
+            ($1 as! NSNumber).compare($0 as! NSNumber)
+        } as! [String]
     }
     /*
     
@@ -76,7 +76,7 @@ class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegat
     Begin TableView delegates
     
     */
-    func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
+    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
         return cityRelevanceList.count
     }
     

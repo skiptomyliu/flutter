@@ -162,7 +162,7 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     // Move queue operation somewhere else?
     func queueOperation() {
         let co = ConnectionOperation()
-        co.threadPriority = 0.01
+//        co.threadPriority = 0.01
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
