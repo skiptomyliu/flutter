@@ -28,7 +28,7 @@ class ProcessMetadata {
         self.pid = pid
         let psPath = NSBundle.mainBundle().pathForResource("ps", ofType: "sh")
         let rawAppPath:NSString = SystemCall(cmd: psPath!, args: ["\(pid)"]).run()
-        self.initAppPath(rawAppPath)
+        self.initAppPath(rawAppPath as String)
         self.initIconImage()
     }
     
@@ -37,7 +37,7 @@ class ProcessMetadata {
         var pathCount = 0
         for (index, component) in enumerate(components) {
             if (component.hasSuffix(".app")) {
-                self.applicationName = component.substringToIndex(advance(component.startIndex, countElements(component)-countElements(".app"))) // Chop off .app suffix
+                self.applicationName = component.substringToIndex(advance(component.startIndex, count(component)-count(".app"))) // Chop off .app suffix
 
                 pathCount = index
                 break;

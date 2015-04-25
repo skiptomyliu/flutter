@@ -64,11 +64,11 @@ class DetailsView: NSView, AppViewDelegate, NSTableViewDataSource, NSTableViewDe
         }
     }
     
-    func numberOfRowsInTableView(aTableView: NSTableView!) -> Int {
+    func numberOfRowsInTableView(aTableView: NSTableView) -> Int {
         return lsofLocations.count
     }
     
-    func tableView(tableView: NSTableView!, objectValueForTableColumn tableColumn: NSTableColumn!, row: Int) -> AnyObject!{
+    func tableView(tableView: NSTableView, objectValueForTableColumn tableColumn: NSTableColumn?, row: Int) -> AnyObject?{
         let lsofObj = self.lsofLocations[row].lsof
         return "\(lsofObj.ip_dst.ip.ip):\(lsofObj.ip_dst.port)"
     }
