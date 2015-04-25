@@ -37,6 +37,7 @@ class SummaryView: NSVisualEffectView, NSTableViewDataSource, NSTableViewDelegat
             ($1 as NSNumber).compare($0 as NSNumber)
         } as [String]
     }
+    
     /*
     
     Begin Delegates

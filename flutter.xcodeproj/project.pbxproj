@@ -18,6 +18,7 @@
 		051F969B1A82AF26008E7416 /* Lsof.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F96981A82AF26008E7416 /* Lsof.swift */; };
 		051F969C1A82AF26008E7416 /* SystemCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051F96991A82AF26008E7416 /* SystemCall.swift */; };
 		051F969F1A82AF3A008E7416 /* lsof.sh in Resources */ = {isa = PBXBuildFile; fileRef = 051F969E1A82AF3A008E7416 /* lsof.sh */; };
+		053C375A1AEBB7DB00220D4B /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C37591AEBB7DB00220D4B /* PreferencesViewController.swift */; };
 		053E7FE81A84181B00E8DA73 /* IPAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE71A84181B00E8DA73 /* IPAddress.swift */; };
 		053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053E7FE91A842A5900E8DA73 /* MapViewController.swift */; };
 		053E7FEC1A842B9800E8DA73 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053E7FEB1A842B9800E8DA73 /* MapKit.framework */; };
@@ -74,6 +75,7 @@
 		051F96981A82AF26008E7416 /* Lsof.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lsof.swift; sourceTree = "<group>"; };
 		051F96991A82AF26008E7416 /* SystemCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemCall.swift; sourceTree = "<group>"; };
 		051F969E1A82AF3A008E7416 /* lsof.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = lsof.sh; sourceTree = "<group>"; };
+		053C37591AEBB7DB00220D4B /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		053E7FE71A84181B00E8DA73 /* IPAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPAddress.swift; sourceTree = "<group>"; };
 		053E7FE91A842A5900E8DA73 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		053E7FEB1A842B9800E8DA73 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -203,6 +205,7 @@
 			children = (
 				053E7FE91A842A5900E8DA73 /* MapViewController.swift */,
 				05C9FE941AAFBC70004A247E /* WindowController.swift */,
+				053C37591AEBB7DB00220D4B /* PreferencesViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				05894A3F1A93AC0700A3BCCC /* WhoIsView.swift in Sources */,
 				053E7FEA1A842A5900E8DA73 /* MapViewController.swift in Sources */,
 				056280F41A8ABF0000E64820 /* CountView.swift in Sources */,
+				053C375A1AEBB7DB00220D4B /* PreferencesViewController.swift in Sources */,
 				051F96931A82AF0F008E7416 /* FMDatabasePool.m in Sources */,
 				05A1016F1A8D633000182CFD /* ProcessMetadata.swift in Sources */,
 				051F96921A82AF0F008E7416 /* FMDatabaseAdditions.m in Sources */,
