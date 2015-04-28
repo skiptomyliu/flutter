@@ -14,10 +14,16 @@ class PreferencesViewController: NSViewController {
     
     @IBOutlet weak var slider: NSSlider!
     @IBOutlet weak var refreshRateLabel: NSTextField!
+    
+    
     @IBAction func sliderValueChanged(sender: NSSlider) {
-        println("This is a test")
         println(sender.integerValue)
         
         self.refreshRateLabel.stringValue = "\(String(sender.integerValue)) seconds"
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(sender.integerValue, forKey: "refreshLimit")
+        
+        
     }
 }

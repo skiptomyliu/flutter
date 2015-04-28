@@ -14,7 +14,7 @@ protocol ConnectionCallbackDelegate {
 
 class ConnectionOperation: NSOperation {
     var delegates = [ConnectionCallbackDelegate]()
-    let delay:NSTimeInterval = 70 //XXX:  Todo, put this in plist
+    var delay:NSTimeInterval = 70 //XXX:  Todo, put this in plist
     
     override func main() {
         if self.cancelled {
@@ -43,6 +43,14 @@ class ConnectionOperation: NSOperation {
         for delegate in delegates {
             delegate.connectionOperationHandleMapConnections(mapConnections)
         }
+        
+        /* There's something wrong with this logic, it will queue before sleeping in MapVC */
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        println(defaults.valueForKey("refreshLimit"))
+        
+        self.delay = NSTimeInterval(defaults.integerForKey("refreshLimit"))
+        println("I'm sleeping for \(self.delay)")
         NSThread.sleepForTimeInterval(self.delay)
     }
 }

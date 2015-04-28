@@ -22,6 +22,21 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
     
     let MIN_SPAN = 1.0
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view.
+        self.appView.delegates.append(self)
+        self.appView.delegates.append(self.detailsView)
+        
+        self.detailsView.delegates.append(self.detailsView.whoisView)
+        self.detailsView.delegates.append(self)
+        
+        self.queueOperation()
+    }
+    
+    
     // AppView delegate callback method
     func appViewRowSelected(lsofLocations: [LsofLocation]) {
         /* load the details of the app and show only locations pertaining to selected app */
@@ -87,15 +102,17 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         dispatch_async(dispatch_get_main_queue(), {
             self.progressIndicator.stopAnimation(self)
             self.progressIndicator.hidden = true
+            println("hidden is true")
             self.savedLsofLocations = lsofLocations
             self.addAnnotations(lsofLocations)
-            
 
             if (self.refreshCheckbox.state > 0) {
                 println("checkbox state: \(self.refreshCheckbox.state)")
-                self.queueOperation() // Temporarily disable recalling the queueoperation
+                
+                self.queueOperation()
+                
+                
             }
-
         })
     }
     
@@ -146,30 +163,18 @@ class MapViewController: NSViewController, MKMapViewDelegate, ConnectionCallback
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        // Do any additional setup after loading the view.
-        self.appView.delegates.append(self)
-        self.appView.delegates.append(self.detailsView)
-        
-        self.detailsView.delegates.append(self.detailsView.whoisView)
-        self.detailsView.delegates.append(self)
-        
-        self.queueOperation()
-    }
     
     // Move queue operation somewhere else?
     func queueOperation() {
         let co = ConnectionOperation()
-//        co.threadPriority = 0.01
+//        co.threadPriority = 0.01 // XXX:  This has been deprecated, figure out how to set priority later
         co.queuePriority = NSOperationQueuePriority.VeryLow
         co.qualityOfService = NSQualityOfService.Background
         co.delegates.append(self)
         co.delegates.append(self.appView)
         operationQueue.addOperations([co], waitUntilFinished: false)
         
-        
+        println("starting animation")
         self.progressIndicator.startAnimation(self)
         self.progressIndicator.hidden = false
     }
