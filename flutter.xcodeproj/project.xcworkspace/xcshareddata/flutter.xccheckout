@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>220D9E44-42B5-40E4-9EBC-25FBCEDBFC29</string>
+	<key>IDESourceControlProjectName</key>
+	<string>flutter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9EDFAB637FF214D5444F3576F08BE83D8C1FD486</key>
+		<string>https://github.com/skiptomyliu/flutter.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>flutter.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9EDFAB637FF214D5444F3576F08BE83D8C1FD486</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/skiptomyliu/flutter.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9EDFAB637FF214D5444F3576F08BE83D8C1FD486</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EDFAB637FF214D5444F3576F08BE83D8C1FD486</string>
+			<key>IDESourceControlWCCName</key>
+			<string>flutter</string>
+		</dict>
+	</array>
+</dict>
+</plist>
